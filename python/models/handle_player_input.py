@@ -4,9 +4,9 @@ class HandlePlayerInput:
         return input(text)
 
     def get_player_spot(self):
-        spot = self.get_input('Play')
+        spot = self.get_input('Choose your move: ')
         return int(spot)
-# 
+#
 # if __name__ == '__main__':
 #     h=HandlePlayerInput()
 #     h.get_player_spot()
