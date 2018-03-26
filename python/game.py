@@ -24,15 +24,6 @@ class Game:
 
     print "Game over"
 
-  def get_human_spot(self):
-    spot = None
-    while spot is None:
-      spot = int(raw_input())
-      if self.board[spot] != "X" and self.board[spot] != "O":
-        self.board[spot] = self.hum
-      else:
-        spot = None
-
 if __name__ == '__main__':
   game = Game()
   game.start_game()
