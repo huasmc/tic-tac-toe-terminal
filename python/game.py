@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
 from game_state import GameState
+from human_player import HumanPlayer
 
 class Game:
   def __init__(self):
@@ -8,6 +9,7 @@ class Game:
     self.com = "X" # the computer's marker
     self.hum = "O" # the user's marker
     self.gameState = GameState();
+    self.humanPlayer = HumanPlayer();
 
   def start_game(self):
     # start by printing the board
@@ -18,7 +20,7 @@ class Game:
     print "Enter [0-8]:"
     # loop through until the game was won or tied
     while not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
-      self.get_human_spot()
+      self.humanPlayer.get_human_spot(self.board, self.hum)
       if not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
         self.eval_board()
 

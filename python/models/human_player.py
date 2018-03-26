@@ -1,9 +1,9 @@
 class HumanPlayer:
-  def get_human_spot(self):
+  def get_human_spot(self, board, token):
     spot = None
     while spot is None:
       spot = int(raw_input())
-      if self.board[spot] != "X" and self.board[spot] != "O":
-        self.board[spot] = self.hum
+      if board[spot] != "X" and board[spot] != "O":
+        board[spot] = token
       else:
         spot = None
