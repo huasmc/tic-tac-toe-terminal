@@ -10,7 +10,6 @@ from handle_player_input import HandlePlayerInput
 class Game:
   def __init__(self):
     self.board = Board()
-    self.com = 'O'
     self.displayBoard = DisplayBoard()
     self.gameState = GameState()
     self.humanPlayer = HumanPlayer()
@@ -21,7 +20,9 @@ class Game:
   def start_game(self):
     # start by printing the board
     self.displayBoard.logs(self.board)
+
     print "Enter [0-8]:"
+
     # loop through until the game was won or tied
     while not self.gameState.get_state(self.board):
       spot = None
@@ -32,7 +33,7 @@ class Game:
       spot = None
 
       if not self.gameState.get_state(self.board):
-        self.computerPlayer.play(self.board, self.com, self.gameState)
+        self.computerPlayer.play(self.board, self.gameState)
 
         self.displayBoard.logs(self.board)
 
