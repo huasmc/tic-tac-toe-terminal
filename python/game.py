@@ -3,15 +3,16 @@ sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/mod
 from game_state import GameState
 from human_player import HumanPlayer
 from computer_player import ComputerPlayer
+from board import Board
 
 class Game:
   def __init__(self):
-    self.board = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+    self.board = Board()
     self.com = "X" # the computer's marker
     self.hum = "O" # the user's marker
-    self.gameState = GameState();
-    self.humanPlayer = HumanPlayer();
-    self.computerPlayer = ComputerPlayer();
+    self.gameState = GameState()
+    self.humanPlayer = HumanPlayer()
+    self.computerPlayer = ComputerPlayer()
 
   def start_game(self):
     # start by printing the board
