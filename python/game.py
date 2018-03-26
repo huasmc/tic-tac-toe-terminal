@@ -16,13 +16,14 @@ class Game:
     self.humanPlayer = HumanPlayer()
     self.computerPlayer = ComputerPlayer()
     self.handlePlayerInput = HandlePlayerInput()
+    self.gameState = GameState()
 
   def start_game(self):
     # start by printing the board
     self.displayBoard.logs(self.board)
     print "Enter [0-8]:"
     # loop through until the game was won or tied
-    while not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
+    while not self.gameState.get_state(self.board):
       spot = None
 
       while spot == None:
@@ -30,7 +31,7 @@ class Game:
       self.humanPlayer.play(self.board, spot)
       spot = None
 
-      if not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
+      if not self.gameState.get_state(self.board):
         self.computerPlayer.play(self.board, self.com, self.gameState)
 
         self.displayBoard.logs(self.board)

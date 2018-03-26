@@ -19,13 +19,13 @@ class ComputerPlayer:
 
     for avail in available_spaces:
       board.grid[int(avail)] = token
-      if gameState.game_is_over(board):
+      if gameState.get_state(board):
         best_move = int(avail)
         board.grid[int(avail)] = avail
         return best_move
       else:
         board.grid[int(avail)] = 'O'
-        if gameState.game_is_over(board):
+        if gameState.get_state(board):
           best_move = int(avail)
           board.grid[int(avail)] = avail
           return best_move
