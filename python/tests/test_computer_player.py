@@ -9,10 +9,13 @@ class TestComputerPlayer(unittest.TestCase):
         self.testComputerPlayer = ComputerPlayer();
 
     def test_computerPlayer_has_token(self):
-        assertEquals( self.testComputerPlayer.token, 'O')
+        self.assertEquals( self.testComputerPlayer.token, 'O')
 
     def test_computerPlayer_play_method(self):
-        assertEquals( self.testComputerPlayer.play, )
+        self.assertEquals( self.testComputerPlayer.play, 0 )
 
     def test_computerPlayer_get_best_move(self):
-        assertEquals( self.testComputerPlayer.get_best_move, )
+        self.assertEquals( self.testComputerPlayer.get_best_move, 0 )
+
+if __name__ == '__main__':
+    unittest.main()
