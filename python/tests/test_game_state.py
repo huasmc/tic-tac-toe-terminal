@@ -2,20 +2,25 @@ import unittest
 import sys
 sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/')
 from game_state import GameState
+from board import Board
 
 class TestGameState(unittest.TestCase):
 
     def setUp(self):
         self.gameState = GameState();
+        self.board = Board();
 
-    def test_gameState_game_is_over(self):
-        self.assertEquals( self.gameState.game_is_over(), 0 )
+    def test_get_state(self):
+        self.assertEqual( self.gameState.get_state(self.board), False )
 
-    def test_gameState_three_in_a_row(self):
-        self.assertEquals( self.gameState.three_in_a_row(), 0 )
+    def test_check_win(self):
+        self.assertEqual( self.gameState.check_win(self.board), False )
 
-    def test_gameState_tie(self):
-        self.assertEquals( self.gameState.tie(), 0)
+    def test_check_win_combinations_state(self):
+        self.assertEqual( self.gameState.test_check_win_combinations_state(self.board), False)
+
+    def test_check_tie(self):
+        self.assertEqual( self.gameState.tie(self.board), False)
 
 if __name__ == '__main__':
     unittest.main()
