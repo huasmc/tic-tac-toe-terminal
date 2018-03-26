@@ -21,7 +21,7 @@ class Game:
     print "Enter [0-8]:"
     # loop through until the game was won or tied
     while not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
-      self.humanPlayer.get_human_spot(self.board)
+      self.humanPlayer.play(self.board)
       if not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
         self.computerPlayer.eval_board(self.board, self.com, self.gameState)
 
