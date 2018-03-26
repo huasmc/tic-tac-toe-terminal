@@ -9,9 +9,8 @@ from display_board import DisplayBoard
 class Game:
   def __init__(self):
     self.board = Board()
+    self.com = 'O'
     self.displayBoard = DisplayBoard();
-    self.com = "X" # the computer's marker
-    self.hum = "O" # the user's marker
     self.gameState = GameState()
     self.humanPlayer = HumanPlayer()
     self.computerPlayer = ComputerPlayer()
@@ -22,7 +21,7 @@ class Game:
     print "Enter [0-8]:"
     # loop through until the game was won or tied
     while not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
-      self.humanPlayer.get_human_spot(self.board, self.hum)
+      self.humanPlayer.get_human_spot(self.board)
       if not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
         self.computerPlayer.eval_board(self.board, self.com, self.gameState)
 
