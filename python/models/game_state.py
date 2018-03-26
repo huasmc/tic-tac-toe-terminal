@@ -1,8 +1,18 @@
 class GameState:
 
+  def state(self, board):
+      return self.check_win(board) or self.tie(board)
 
+  def check_win(self, board):
+      for combination in board.win_combinations:
+        if self.check_combination_state(combination, board):
+            return True
+      return False
 
-    
+  def check_combination_state(self, combination, board):
+      return board.grid[combination[0]] == board.grid[combination[1]] == board.grid[combination[2]] == 'X' or \
+        board.grid[combination[0]] == board.grid[combination[1]] == board.grid[combination[2]] == 'O'
+
   # def three_in_a_row(self, *args):
   #   return args[0] == args[1] == args[2] == "X" or \
   #       args[0] == args[1] == args[2] == "O"
