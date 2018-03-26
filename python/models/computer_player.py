@@ -1,6 +1,6 @@
 class ComputerPlayer:
 
-  def eval_board(self, board, token, gameState):
+  def play(self, board, token, gameState):
     spot = None
     while spot is None:
       if board.grid[4] == "4":

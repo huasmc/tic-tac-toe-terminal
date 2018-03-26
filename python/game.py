@@ -24,12 +24,14 @@ class Game:
     # loop through until the game was won or tied
     while not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
       spot = None
+
       while spot == None:
           spot = self.handlePlayerInput.get_player_spot()
       self.humanPlayer.play(self.board, spot)
       spot = None
+
       if not self.gameState.game_is_over(self.board) and not self.gameState.tie(self.board):
-        self.computerPlayer.eval_board(self.board, self.com, self.gameState)
+        self.computerPlayer.play(self.board, self.com, self.gameState)
 
         self.displayBoard.logs(self.board)
 
