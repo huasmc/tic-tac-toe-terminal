@@ -3,7 +3,7 @@ class HumanPlayer:
     spot = None
     while spot is None:
       spot = int(raw_input())
-      if board[spot] != "X" and board[spot] != "O":
-        board[spot] = token
+      if board.grid[spot] != "X" and board.grid[spot] != "O":
+        board.grid[spot] = token
       else:
         spot = None
