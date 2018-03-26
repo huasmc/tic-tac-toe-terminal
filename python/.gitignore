@@ -3,4 +3,5 @@ game_state.pyc
 display_board.pyc
 human_player.pyc
 computer_player.pyc
-handle_user_input.pyc
+handle_player_input.pyc
+__pycache__
