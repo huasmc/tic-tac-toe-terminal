@@ -36,8 +36,9 @@ class Game:
         self.computerPlayer.play(self.board, self.gameState)
 
         self.displayBoard.logs(self.board)
-
+    self.displayBoard.logs(self.board)
     print "Game over"
+
 
 
 if __name__ == '__main__':
