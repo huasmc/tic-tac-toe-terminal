@@ -36,7 +36,11 @@ class TestBoard(unittest.TestCase):
         self.assertEqual( self.board.win_combinations[6], [0,4,8])
 
     def test_board_eigth_win_combination(self):
-        self.assertEqual(self.board.win_combinations[7], [2,4,6])
+        self.assertEqual( self.board.win_combinations[7], [2,4,6] )
+
+    def test_board_eight_win_combination(self):
+        available_spots = self.board.get_available_spots()
+        self.assertEqual( len(available_spots), 9 )
 
 if __name__ == '__main__':
     unittest.main()

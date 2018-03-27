@@ -16,25 +16,25 @@ class ComputerPlayer:
           spot = None
 
   def get_best_move(self, board, gameState):
-    available_spaces = [s for s in board.grid if s != "X" and s != "O"]
+    available_spots = board.get_available_spots()
     best_move = None
 
-    for avail in available_spaces:
-      board.grid[int(avail)] = self.token
+    for spot in available_spots:
+      board.grid[int(spot)] = self.token
       if gameState.get_state(board):
-        best_move = int(avail)
-        board.grid[int(avail)] = avail
+        best_move = int(spot)
+        board.grid[int(spot)] = spot
         return best_move
       else:
-        board.grid[int(avail)] = 'O'
+        board.grid[int(spot)] = self.token
         if gameState.get_state(board):
-          best_move = int(avail)
-          board.grid[int(avail)] = avail
+          best_move = int(spot)
+          board.grid[int(spot)] = spot
           return best_move
         else:
-          board.grid[int(avail)] = avail
+          board.grid[int(spot)] = spot
 
     if best_move:
       return best_move
     else:
-      return int(available_spaces[0])
+      return int(available_spots[0])
