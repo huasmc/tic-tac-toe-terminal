@@ -1,6 +1,6 @@
 class GameState:
 
-  def get_state(self, board):
+  def finished(self, board):
       return self.check_win(board) or self.tie(board)
 
   def check_win(self, board):

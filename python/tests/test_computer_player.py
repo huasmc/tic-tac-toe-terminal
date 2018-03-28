@@ -11,7 +11,7 @@ class TestComputerPlayer(unittest.TestCase):
     def test_computerPlayer_has_token(self):
         self.assertEquals( self.computerPlayer.token, 'O')
 
-    def test_computerPlayer_play_method(self):
+    def test_computerPlayer_play(self):
         self.assertEquals( self.computerPlayer.play, 0 )
 
     def test_computerPlayer_get_best_move(self):
