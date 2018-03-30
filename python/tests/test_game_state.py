@@ -10,8 +10,8 @@ class TestGameState(unittest.TestCase):
         self.gameState = GameState();
         self.board = Board();
 
-    def test_get_state(self):
-        self.assertEqual( self.gameState.get_state(self.board), False )
+    def test_finished(self):
+        self.assertEqual( self.gameState.finished(self.board), False )
 
     def test_check_win(self):
         self.assertEqual( self.gameState.check_win(self.board), False )
