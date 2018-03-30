@@ -24,6 +24,15 @@ class TestAI(unittest.TestCase):
     def test_best_spot_is_middle_if_empty(self):
         self.assertEqual( self.AI.get_best_spot(self.board), 4 )
 
+    def test_maximized_spot(self):
+        self.assertEqual( self.maximized_move(self.board), 0 )
+
+    def test_minimized_spot(self):
+        self.assertEqual( self.minimized_move(self.board), 0 )
+
+    def test_get_score(self):
+        self.assertEqual( self.get_score(self.board), 0 )
+
     # def test_:
     #     assertEqual(  )
 if __name__ == '__main__':
