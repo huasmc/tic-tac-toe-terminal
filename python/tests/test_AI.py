@@ -9,6 +9,7 @@ class TestAI(unittest.TestCase):
     def setUp(self):
         self.AI = AI('X')
         self.board = Board()
+
     def test_has_marker(self):
         self.assertEqual( self.AI.marker, 'X' )
 
@@ -25,13 +26,13 @@ class TestAI(unittest.TestCase):
         self.assertEqual( self.AI.get_best_spot(self.board), 4 )
 
     def test_maximized_spot(self):
-        self.assertEqual( self.maximized_move(self.board), 0 )
+        self.assertEqual( self.AI.maximized_move(self.board), (4, 1) )
 
     def test_minimized_spot(self):
-        self.assertEqual( self.minimized_move(self.board), 0 )
+        self.assertEqual( self.AI.minimized_move(self.board), 0 )
 
     def test_get_score(self):
-        self.assertEqual( self.get_score(self.board), 0 )
+        self.assertEqual( self.AI.get_score(self.board), 0 )
 
     # def test_:
     #     assertEqual(  )
