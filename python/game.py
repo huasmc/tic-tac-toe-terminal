@@ -1,4 +1,5 @@
 import sys
+import copy
 sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
 from game_state import GameState
 from human_player import HumanPlayer
@@ -25,12 +26,9 @@ class Game:
 
     # loop through until the game was won or tied
     while not self.gameState.finished(self.board):
-      spot = None
-
-      while spot == None:
-          spot = self.handlePlayerInput.get_player_spot()
+      try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
+      spot = copy.deepcopy(try_spot)
       self.humanPlayer.play(self.board, spot)
-      spot = None
 
       if not self.gameState.finished(self.board):
         self.computerPlayer.play(self.board)
