@@ -14,7 +14,7 @@ class TestGameState(unittest.TestCase):
         self.assertEqual( self.gameState.finished(self.board), False )
 
     def test_check_win(self):
-        self.assertEqual( self.gameState.check_win(self.board), False )
+        self.assertEqual( self.gameState.check_win(self.board)[0], False )
 
     def test_check_win_combination_one_state(self):
         self.assertEqual( self.gameState.check_combination_state(self.board.win_combinations[0], self.board), False)

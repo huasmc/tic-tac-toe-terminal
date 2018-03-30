@@ -5,7 +5,7 @@ from AI import MiniMax
 from board import Board
 
 class TestAI(unittest.TestCase):
-
+# Different test cases must be done for each method.
     def setUp(self):
         self.AI = MiniMax('X')
         self.board = Board()
@@ -22,14 +22,15 @@ class TestAI(unittest.TestCase):
     def test_has_gameState(self):
         self.assertIsNotNone( self.AI.gameState )
 
-    # def test_best_spot_is_middle_if_empty(self):
-    #     self.assertEqual( self.AI.get_best_spot(self.board), 4)
+    def test_best_spot_is_middle_if_empty(self):
+        self.assertEqual( self.AI.get_best_spot(self.board), 4)
 
     # def test_maximized_spot(self):
-    #     self.assertEqual( self.AI.maximized_move(self.board), ['0', 0] )
+    #     print(" This may take a while, please be patient while AI thinks..")
+    #     self.assertEqual( self.AI.maximized_spot(self.board), ['0', 0] )
     #
     # def test_minimized_spot(self):
-    #     self.assertEqual( self.AI.minimized_move(self.board), ['0', 0] )
+    #     self.assertEqual( self.AI.minimized_spot(self.board), ['0', 0] )
 
     def test_get_score(self):
         self.assertEqual( self.AI.get_score(self.board), 0 )
