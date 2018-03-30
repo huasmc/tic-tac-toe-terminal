@@ -11,7 +11,7 @@ class TestHandlePlayerInput(unittest.TestCase):
 
     @patch('builtins.input', return_value='0')
     def test_get_user_spot(self, input):
-        self.assertEqual(self.handlePlayerInput.get_player_spot(), 0)
+        self.assertEqual(self.handlePlayerInput.get_player_spot(['0', '1']), 0)
 
 if __name__ == '__main__':
     unittest.main()

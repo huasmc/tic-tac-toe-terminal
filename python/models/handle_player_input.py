@@ -2,10 +2,10 @@ import copy
 class HandlePlayerInput:
 
     def get_player_spot(self, available_spots):
-            spot = raw_input('Choose your move: ')
+            spot = input('Choose your move: ')
             if not spot in available_spots:
-                print "Please choose an available spot on the board."
-                print "Choose one of these spots [%s]:" % ", ".join(available_spots)
+                print("Please choose an available spot on the board.")
+                print("Choose one of these spots [%s]:" % ", ".join(available_spots))
                 return self.get_player_spot(available_spots)
             else:
                 return int(spot)
