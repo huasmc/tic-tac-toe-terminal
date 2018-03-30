@@ -1,4 +1,5 @@
 ../attemptas/
+AI.pyc
 minimax.py
 board.pyc
 game_state.pyc
