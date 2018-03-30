@@ -1,4 +1,5 @@
 from AI import minimax
+import copy
 
 class ComputerPlayer:
 
@@ -7,13 +8,13 @@ class ComputerPlayer:
       self.AI = minimax(self.token)
 
   def play(self, board):
-       spot = None
-       while spot is None:
-           spot = self.AI.get_best_spot(board)
-           if board.grid[int(spot)] != "X" and board.grid[int(spot)] != "O":
-             board.grid[spot] = self.token
-           else:
-             spot = None
+      clone_board = copy.deepcopy(board)
+      if ( board.grid[4] != "X" and board.grid[4] != "O" ):
+        spot = int(4)
+        board.grid[spot] = self.token
+      else:
+        spot = int(self.AI.get_best_spot(clone_board))
+        board.grid[spot] = self.token
 
 
 
@@ -21,18 +22,18 @@ class ComputerPlayer:
       #
       #
       # def play(self, board, gameState):
-        # spot = None
-        # while spot is None:
-        #   if board.grid[4] == "4":
-        #     spot = 4
-        #     board.grid[spot] = self.token
-        #   else:
-        #     spot = self.get_best_move(board, gameState)
-        #     if board.grid[spot] != "X" and board.grid[spot] != "O":
-        #       board.grid[spot] = self.token
-        #     else:
-        #       spot = None
-        #
+      # spot = None
+      # while spot is None:
+      #   if board.grid[4] == "4":
+      #     spot = 4
+      #     board.grid[spot] = self.token
+      #   else:
+      #     spot = self.get_best_move(board, gameState)
+      #     if board.grid[spot] != "X" and board.grid[spot] != "O":
+      #       board.grid[spot] = self.token
+      #     else:
+      #       spot = None
+      #
       # def get_best_move(self, board, gameState):
       #   available_spots = board.get_available_spots()
       #   best_move = None
