@@ -8,13 +8,15 @@ class MiniMax:
         self.token = token
         self.winner = None
         self.gameState = GameState()
-        self.displayBoard = DisplayBoard()
         if self.token == 'X':
             self.opponenttoken = 'O'
         else:
             self.opponenttoken = 'X'
 
     def get_best_spot(self, board):
+        if ( board.grid[4] != "X" and board.grid[4] != "O" ):
+         return 4
+        else:
             spot = self.maximized_move(board)
             return spot[0]
 
@@ -65,7 +67,7 @@ class MiniMax:
 
         return [bestmove, bestscore]
 
-    def get_score(self,board):
+    def get_score(self, board):
         if self.gameState.finished(board):
             self.winner = self.gameState.check_win(board)[1]
             if self.winner  == self.token:
@@ -75,3 +77,5 @@ class MiniMax:
                 return -1 # Opponent won
 
         return 0 # Draw
+
+    def get_random_spot(self, board)

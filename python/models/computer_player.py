@@ -1,16 +1,16 @@
-from AI import minimax
+from AI import MiniMax
 
 class ComputerPlayer:
 
   def __init__(self):
       self.token = 'O'
-      self.AI = minimax(self.token)
+      self.AI = MiniMax(self.token)
 
   def play(self, board):
-      if ( board.grid[4] != "X" and board.grid[4] != "O" ):
-        spot = int(4)
-        board.grid[spot] = self.token
-      else:
+      # if ( board.grid[4] != "X" and board.grid[4] != "O" ):
+      #   spot = int(4)
+      #   board.grid[spot] = self.token
+      # else:
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
 
