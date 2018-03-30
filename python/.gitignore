@@ -1,3 +1,5 @@
+../attemptas/
+minimax.py
 board.pyc
 game_state.pyc
 display_board.pyc
