@@ -2,7 +2,7 @@ from game_state import GameState
 from display_board import DisplayBoard
 import copy
 
-class minimax:
+class MiniMax:
 
     def __init__(self, token):
         self.token = token
@@ -20,7 +20,6 @@ class minimax:
 
     def maximized_move(self, board):
         clone_board = copy.deepcopy(board)
-        clone_board_reset = copy.deepcopy(board)
         # find best move to win
 
         bestscore = None
@@ -34,7 +33,7 @@ class minimax:
             else:
                 move_position,score = self.minimized_move(clone_board)
 
-            clone_board = clone_board_reset
+            clone_board = copy.deepcopy(board)
 
             if bestscore == None or score > bestscore:
                 bestscore = score
@@ -44,7 +43,6 @@ class minimax:
 
     def minimized_move(self, board):
         clone_board = copy.deepcopy(board)
-        clone_board_reset = copy.deepcopy(board)
         # ''' Find the minimized move'''
 
         bestscore = None
@@ -59,7 +57,7 @@ class minimax:
                 move_position,score = self.maximized_move(clone_board)
 
 
-            clone_board = clone_board_reset
+            clone_board = copy.deepcopy(board)
 
             if bestscore == None or score < bestscore:
                 bestscore = score
@@ -69,7 +67,6 @@ class minimax:
 
     def get_score(self,board):
         if self.gameState.finished(board):
-            print self.gameState.check_win(board)
             self.winner = self.gameState.check_win(board)[1]
             if self.winner  == self.token:
                 return 1 # Won
