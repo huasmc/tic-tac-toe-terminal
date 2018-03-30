@@ -10,3 +10,7 @@ class AI:
             self.opponentmarker = 'O'
         else:
             self.opponentmarker = 'X'
+
+    def get_best_spot(self, board):
+        if ( board.grid[4] != self.opponentmarker and board.grid[4] != self.marker ):
+            return 4

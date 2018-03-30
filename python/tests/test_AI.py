@@ -8,7 +8,7 @@ class TestAI(unittest.TestCase):
 
     def setUp(self):
         self.AI = AI('X')
-
+        self.board = Board()
     def test_has_marker(self):
         self.assertEqual( self.AI.marker, 'X' )
 
@@ -22,7 +22,7 @@ class TestAI(unittest.TestCase):
         self.assertIsNotNone( self.AI.gameState )
 
     def test_best_spot_is_middle_if_empty(self):
-        self.assertEqual( self.AI.get_best_spot(), 4 )
+        self.assertEqual( self.AI.get_best_spot(self.board), 4 )
 
     # def test_:
     #     assertEqual(  )
