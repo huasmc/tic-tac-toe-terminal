@@ -1,6 +1,14 @@
+from AI import minimax
+
 class ComputerPlayer:
+
   def __init__(self):
       self.token = 'O'
+      self.AI = minimax()
+
+  def play(self, board):
+      spot = self.AI.get_best_spot(board)
+      board.grid[spot] = self.token
 
 
 
@@ -16,17 +24,9 @@ class ComputerPlayer:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+      #
+      #
+      #
       # def play(self, board, gameState):
       #   spot = None
       #   while spot is None:
