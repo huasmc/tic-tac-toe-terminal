@@ -1,5 +1,4 @@
 from AI import minimax
-import copy
 
 class ComputerPlayer:
 
@@ -8,12 +7,11 @@ class ComputerPlayer:
       self.AI = minimax(self.token)
 
   def play(self, board):
-      clone_board = copy.deepcopy(board)
       if ( board.grid[4] != "X" and board.grid[4] != "O" ):
         spot = int(4)
         board.grid[spot] = self.token
       else:
-        spot = int(self.AI.get_best_spot(clone_board))
+        spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
 
 
