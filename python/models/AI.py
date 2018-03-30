@@ -15,58 +15,63 @@ class MiniMax:
             self.opponenttoken = 'X'
 
     def get_best_spot(self, board):
+        # Play in the middle if it's empty.
         if ( board.grid[4] != "X" and board.grid[4] != "O" ):
          return 4
+        # Play random to avoid slow process if there's no risk of losing.
+        # elif ( len(board.get_available_spots()) > 7):
+        #  return int(self.get_random_spot(board))
+        # Play smart if there's risk of losing.
         else:
-            spot = self.maximized_move(board)
+            spot = self.maximized_spot(board)
             return spot[0]
 
-    def maximized_move(self, board):
+    def maximized_spot(self, board):
         clone_board = copy.deepcopy(board)
-        # find best move to win
+        # find best spot to win
 
         bestscore = None
-        bestmove = None
+        bestspot = None
 
-        for m in clone_board.get_available_spots():
-            clone_board.grid[int(m)] = self.token
+        for spot in clone_board.get_available_spots():
+            clone_board.grid[int(spot)] = self.token
 
             if self.gameState.finished(clone_board):
                 score = self.get_score(clone_board)
             else:
-                move_position,score = self.minimized_move(clone_board)
+                spot_position,score = self.minimized_spot(clone_board)
 
             clone_board = copy.deepcopy(board)
 
             if bestscore == None or score > bestscore:
                 bestscore = score
-                bestmove = m
+                bestspot = spot
 
-        return [bestmove, bestscore]
+        return [bestspot, bestscore]
 
-    def minimized_move(self, board):
+    def minimized_spot(self, board):
         clone_board = copy.deepcopy(board)
-        # ''' Find the minimized move'''
+        # ''' Find the minimized spot'''
 
         bestscore = None
-        bestmove = None
+        bestspot = None
 
-        for m in clone_board.get_available_spots():
-            clone_board.grid[int(m)] = self.opponenttoken
+        for spot in clone_board.get_available_spots():
+            clone_board.grid[int(spot)] = self.opponenttoken
 
             if self.gameState.finished(clone_board):
                 score = self.get_score(clone_board)
             else:
-                move_position,score = self.maximized_move(clone_board)
+                spot_position,score = self.maximized_spot(clone_board)
 
 
             clone_board = copy.deepcopy(board)
 
             if bestscore == None or score < bestscore:
                 bestscore = score
-                bestmove = m
+                bestspot = spot
 
-        return [bestmove, bestscore]
+        return [bestspot, bestscore]
 
     def get_score(self, board):
         if self.gameState.finished(board):
