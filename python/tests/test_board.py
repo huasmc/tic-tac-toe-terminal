@@ -42,5 +42,10 @@ class TestBoard(unittest.TestCase):
         available_spots = self.board.get_available_spots()
         self.assertEqual( len(available_spots), 9 )
 
+    def test_board_resets(self):
+        self.board.grid[4] = 'X'
+        self.board.reset()
+        self.assertNotEqual( self.board.grid[4], 'X')
+
 if __name__ == '__main__':
     unittest.main()
