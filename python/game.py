@@ -22,7 +22,7 @@ class Game:
     # start by printing the board
     self.displayBoard.logs(self.board)
 
-    print "Enter [0-8]:"
+    print('Enter [0-8]')
 
     # loop through until the game was won or tied
     while not self.gameState.finished(self.board):
@@ -35,7 +35,7 @@ class Game:
 
         self.displayBoard.logs(self.board)
     self.displayBoard.logs(self.board)
-    print "Game over"
+    print('Game Over')
 
 
 
