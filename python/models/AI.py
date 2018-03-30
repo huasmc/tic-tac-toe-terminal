@@ -1,16 +1,18 @@
 from game_state import GameState
+from display_board import DisplayBoard
 import copy
 
 class minimax:
 
-    def __init__(self, marker):
-        self.marker = marker
+    def __init__(self, token):
+        self.token = token
         self.winner = None
         self.gameState = GameState()
-        if self.marker == 'X':
-            self.opponentmarker = 'O'
+        self.displayBoard = DisplayBoard()
+        if self.token == 'X':
+            self.opponenttoken = 'O'
         else:
-            self.opponentmarker = 'X'
+            self.opponenttoken = 'X'
 
     def get_best_spot(self, board):
             spot = self.maximized_move(board)
@@ -25,7 +27,7 @@ class minimax:
         bestmove = None
 
         for m in clone_board.get_available_spots():
-            clone_board.grid[int(m)] = self.marker
+            clone_board.grid[int(m)] = self.token
 
             if self.gameState.finished(clone_board):
                 score = self.get_score(clone_board)
@@ -40,7 +42,7 @@ class minimax:
 
         return [bestmove, bestscore]
 
-    def minimized_move(self,board):
+    def minimized_move(self, board):
         clone_board = copy.deepcopy(board)
         clone_board_reset = copy.deepcopy(board)
         # ''' Find the minimized move'''
@@ -49,12 +51,13 @@ class minimax:
         bestmove = None
 
         for m in clone_board.get_available_spots():
-            clone_board.grid[int(m)] = self.opponentmarker
+            clone_board.grid[int(m)] = self.opponenttoken
 
             if self.gameState.finished(clone_board):
                 score = self.get_score(clone_board)
             else:
                 move_position,score = self.maximized_move(clone_board)
+
 
             clone_board = clone_board_reset
 
@@ -68,10 +71,10 @@ class minimax:
         if self.gameState.finished(board):
             print self.gameState.check_win(board)
             self.winner = self.gameState.check_win(board)[1]
-            if self.winner  == self.marker:
+            if self.winner  == self.token:
                 return 1 # Won
 
-            elif self.winner == self.opponentmarker:
+            elif self.winner == self.opponenttoken:
                 return -1 # Opponent won
 
         return 0 # Draw
