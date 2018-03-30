@@ -29,7 +29,7 @@ class TestAI(unittest.TestCase):
         self.assertEqual( self.AI.maximized_move(self.board), (4, 1) )
 
     def test_minimized_spot(self):
-        self.assertEqual( self.AI.minimized_move(self.board), 0 )
+        self.assertEqual( self.AI.minimized_move(self.board), (4, 0) )
 
     def test_get_score(self):
         self.assertEqual( self.AI.get_score(self.board), 0 )
