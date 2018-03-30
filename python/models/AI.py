@@ -1,6 +1,7 @@
 from game_state import GameState
 from display_board import DisplayBoard
 import copy
+import random
 
 class MiniMax:
 
@@ -78,4 +79,6 @@ class MiniMax:
 
         return 0 # Draw
 
-    def get_random_spot(self, board)
+    def get_random_spot(self, board):
+        available_spots = board.get_available_spots()
+        return random.choice(available_spots)

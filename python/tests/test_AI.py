@@ -35,8 +35,9 @@ class TestAI(unittest.TestCase):
         self.assertEqual( self.AI.get_score(self.board), 0 )
 
     def test_get_random_spot(self):
+        self.board.grid = ["X", "O", "X", "O", "X", "5", "O", "7", "8"]
         available_spots = self.board.get_available_spots()
-        spot = self.AI.get_random_spot(board)
+        spot = self.AI.get_random_spot(self.board)
         if spot in available_spots:
             result = True
         else:
