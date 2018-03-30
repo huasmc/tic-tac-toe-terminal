@@ -24,7 +24,7 @@ class Game:
     print "Enter [0-8]:"
 
     # loop through until the game was won or tied
-    while not self.gameState.get_state(self.board):
+    while not self.gameState.finished(self.board):
       spot = None
 
       while spot == None:
@@ -32,8 +32,8 @@ class Game:
       self.humanPlayer.play(self.board, spot)
       spot = None
 
-      if not self.gameState.get_state(self.board):
-        self.computerPlayer.play(self.board, self.gameState)
+      if not self.gameState.finished(self.board):
+        self.computerPlayer.play(self.board)
 
         self.displayBoard.logs(self.board)
     self.displayBoard.logs(self.board)

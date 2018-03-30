@@ -1,13 +1,13 @@
 import unittest
 import sys
 sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/')
-from AI import AI
+from AI import minimax
 from board import Board
 
 class TestAI(unittest.TestCase):
 
     def setUp(self):
-        self.AI = AI('X')
+        self.AI = minimax('X')
         self.board = Board()
 
     def test_has_marker(self):
