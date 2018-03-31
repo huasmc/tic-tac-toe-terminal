@@ -46,6 +46,7 @@ class Game:
     # Delete compiled *.pyc files after game over to keep file structure clean.
         os.system("find . -name *.pyc -delete")
 
+  # Set tokens
   def set_up(self):
       while self.computerPlayer.token == None:
           player_token = self.handlePlayerInput.get_player_token()
