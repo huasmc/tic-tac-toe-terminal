@@ -21,7 +21,12 @@ class Game:
     self.gameState = GameState()
 
   def start_game(self):
-    # start by printing the board
+    # Set tokens
+    player_token = self.handlePlayerInput.get_player_token()
+    self.humanPlayer.set_token(player_token)
+    self.computerPlayer.set_token(player_token)
+    print(self.computerPlayer.token)
+    # Print the board
     self.displayBoard.logs(self.board)
 
     print('Enter [0-8]')
@@ -35,7 +40,7 @@ class Game:
       if not self.gameState.finished(self.board):
         self.computerPlayer.play(self.board)
         self.displayBoard.logs(self.board)
-        
+
     self.displayBoard.logs(self.board)
     print('Game Over')
 

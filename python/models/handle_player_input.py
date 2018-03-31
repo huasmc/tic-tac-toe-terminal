@@ -11,7 +11,7 @@ class HandlePlayerInput:
                 return int(spot)
 
     def get_player_token(self):
-        token = input('Choose your token! It can be either X or O')
+        token = input('Choose your token! It can be either X or O: ')
         if (token == 'X'):
             return token
         elif (token == 'O'):

@@ -4,7 +4,7 @@ class ComputerPlayer:
 
   def __init__(self):
       self.token = None
-      self.AI = MiniMax(self.token)
+      self.AI = None
 
   def play(self, board):
       # if ( board.grid[4] != "X" and board.grid[4] != "O" ):
@@ -16,11 +16,15 @@ class ComputerPlayer:
         print(f"Computer has played on position {spot}.")
 
   def set_token(self, opponents_token):
-     if (opponents_token == 'X'):
-        self.token = 'O'
-     else:
-        self.token = 'X'
+      if (opponents_token == 'X'):
+          self.token = 'O'
+      else:
+            self.token = 'X'
+      self.initialize_AI()
 
+  def initialize_AI(self):
+      if( self.token != None):
+          self.AI = MiniMax(self.token)
 
 
       #
