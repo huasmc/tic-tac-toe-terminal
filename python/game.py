@@ -22,30 +22,36 @@ class Game:
 
   def start_game(self):
     # Set tokens
-    player_token = self.handlePlayerInput.get_player_token()
-    self.humanPlayer.set_token(player_token)
-    self.computerPlayer.set_token(player_token)
-    print(self.computerPlayer.token)
+
+        self.set_up()
+
     # Print the board
-    self.displayBoard.logs(self.board)
-
-    print('Enter [0-8]')
-
-    # loop through until the game was won or tied
-    while not self.gameState.finished(self.board):
-      try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
-      spot = copy.deepcopy(try_spot)
-      self.humanPlayer.play(self.board, spot)
-
-      if not self.gameState.finished(self.board):
-        self.computerPlayer.play(self.board)
         self.displayBoard.logs(self.board)
 
-    self.displayBoard.logs(self.board)
-    print('Game Over')
+        print('Enter [0-8]')
+
+        # loop through until the game was won or tied
+        while not self.gameState.finished(self.board):
+          try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
+          spot = copy.deepcopy(try_spot)
+          self.humanPlayer.play(self.board, spot)
+
+          if not self.gameState.finished(self.board):
+            self.computerPlayer.play(self.board)
+            self.displayBoard.logs(self.board)
+
+        self.displayBoard.logs(self.board)
+        print('Game Over')
 
     # Delete compiled *.pyc files after game over to keep file structure clean.
-    os.system("find . -name *.pyc -delete")
+        os.system("find . -name *.pyc -delete")
+
+  def set_up(self):
+      while self.computerPlayer.token == None:
+          player_token = self.handlePlayerInput.get_player_token()
+          self.humanPlayer.set_token(player_token)
+          self.computerPlayer.set_token(player_token)
+
 
 
 if __name__ == '__main__':
