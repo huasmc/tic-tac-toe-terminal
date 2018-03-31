@@ -10,7 +10,7 @@ class TestComputerPlayer(unittest.TestCase):
         self.computerPlayer = ComputerPlayer();
         self.board = Board()
 
-    def test_computerPlayer_has_token(self):
+    def test_computerPlayer_has_None_token(self):
         self.assertEqual( self.computerPlayer.token, None)
 
     def test_computerPlayer_fails_to_initialize_AI(self):
@@ -35,6 +35,11 @@ class TestComputerPlayer(unittest.TestCase):
         opponents_token = 'O'
         self.computerPlayer.set_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'X')
+
+    def test_computerPlayer_fails_to_set_token(self):
+        opponents_token = 'R'
+        result = self.computerPlayer.set_token(opponents_token)
+        self.assertEqual( result, 'Invalid opponents token')
 
 if __name__ == '__main__':
     unittest.main()
