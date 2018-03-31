@@ -11,7 +11,7 @@ class TestHumanPlayer(unittest.TestCase):
         self.board = Board()
 
     def test_humanPlayer_has_token(self):
-        self.assertEqual( self.humanPlayer.token, 'X')
+        self.assertEqual( self.humanPlayer.token, None )
 
     def test_humanPlayer_play_grid_one(self):
         self.humanPlayer.play(self.board, 0)
@@ -51,11 +51,11 @@ class TestHumanPlayer(unittest.TestCase):
 
     def test_set_humanPlayer_token_X(self):
         self.humanPlayer.set_token('X')
-        self.assertTrue( self.humanPlayer.token, 'X')
+        self.assertEqual( self.humanPlayer.token, 'X')
 
     def test_set_humanPlayer_token_O(self):
         self.humanPlayer.set_token('O')
-        self.assertTrue( self.humanPlayer.token, 'O')
+        self.assertEqual( self.humanPlayer.token, 'O')
 
 
 if __name__ == '__main__':
