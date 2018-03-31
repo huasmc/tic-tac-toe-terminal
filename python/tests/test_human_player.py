@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/')
+sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
 from human_player import HumanPlayer
 from board import Board
 

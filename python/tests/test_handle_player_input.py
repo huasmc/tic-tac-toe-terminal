@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/')
+sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
 from handle_player_input import HandlePlayerInput
 
 class TestHandlePlayerInput(unittest.TestCase):

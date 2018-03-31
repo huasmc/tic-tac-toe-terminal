@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/')
+sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
 from board import Board
 
 class TestBoard(unittest.TestCase):
