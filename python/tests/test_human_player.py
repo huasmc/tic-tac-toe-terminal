@@ -49,6 +49,14 @@ class TestHumanPlayer(unittest.TestCase):
         self.humanPlayer.play(self.board, 8)
         self.assertEqual( self.humanPlayer.token, self.board.grid[8])
 
+    def test_set_humanPlayer_token_X(self):
+        self.humanPlayer.set_token('X')
+        self.assertTrue( self.humanPlayer.token, 'X')
+
+    def test_set_humanPlayer_token_O(self):
+        self.humanPlayer.set_token('O')
+        self.assertTrue( self.humanPlayer.token, 'O')
+
 
 if __name__ == '__main__':
     unittest.main()
