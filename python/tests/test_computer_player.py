@@ -11,11 +11,21 @@ class TestComputerPlayer(unittest.TestCase):
         self.board = Board()
 
     def test_computerPlayer_has_token(self):
-        self.assertEqual( self.computerPlayer.token, 'O')
+        self.assertEqual( self.computerPlayer.token, None)
 
     def test_computerPlayer_play_first_middle(self):
         self.computerPlayer.play(self.board)
         self.assertEqual( self.board.grid[4], self.computerPlayer.token )
+
+    def test_computerPlayer_set_token_X(self):
+        opponents_token = 'X'
+        self.computerPlayer.set_token(opponents_token)
+        self.assertEqual( self.computerPlayer.token, 'O')
+
+    def test_computerPlayer_set_token_X(self):
+        opponents_token = 'O'
+        self.computerPlayer.set_token(opponents_token)
+        self.assertEqual( self.computerPlayer.token, 'X')
 
 if __name__ == '__main__':
     unittest.main()
