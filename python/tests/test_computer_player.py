@@ -16,6 +16,11 @@ class TestComputerPlayer(unittest.TestCase):
     def test_computerPlayer_fails_to_initialize_AI(self):
         self.assertIsNone( self.computerPlayer.initialize_AI() )
 
+    def test_computerPlayer_initializes_AI(self):
+        self.computerPlayer.set_token('X')
+        self.computerPlayer.initialize_AI()
+        self.assertIsNotNone( self.computerPlayer.AI )
+
     def test_computerPlayer_play_first_middle(self):
         self.computerPlayer.set_token('X')
         self.computerPlayer.play(self.board)
