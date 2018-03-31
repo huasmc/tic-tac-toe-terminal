@@ -34,8 +34,8 @@ class Game:
 
       if not self.gameState.finished(self.board):
         self.computerPlayer.play(self.board)
-
         self.displayBoard.logs(self.board)
+        
     self.displayBoard.logs(self.board)
     print('Game Over')
 

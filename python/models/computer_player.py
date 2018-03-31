@@ -13,6 +13,7 @@ class ComputerPlayer:
       # else:
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
+        print(f"Computer has played on position {spot}.")
 
 
 
