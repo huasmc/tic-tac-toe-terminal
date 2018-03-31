@@ -16,11 +16,14 @@ class ComputerPlayer:
         print(f"Computer has played on position {spot}.")
 
   def set_token(self, opponents_token):
-      if (opponents_token == 'X'):
-          self.token = 'O'
-      else:
-            self.token = 'X'
-      self.initialize_AI()
+     if ('O' != opponents_token != 'X' ):
+      return 'Invalid opponents token'
+     else:
+          if (opponents_token == 'X'):
+              self.token = 'O'
+          else:
+                self.token = 'X'
+          self.initialize_AI()
 
   def initialize_AI(self):
       if( self.token != None):
