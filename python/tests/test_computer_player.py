@@ -13,7 +13,11 @@ class TestComputerPlayer(unittest.TestCase):
     def test_computerPlayer_has_token(self):
         self.assertEqual( self.computerPlayer.token, None)
 
+    def test_computerPlayer_fails_to_initialize_AI(self):
+        self.assertIsNone( self.computerPlayer.initialize_AI() )
+
     def test_computerPlayer_play_first_middle(self):
+        self.computerPlayer.set_token('X')
         self.computerPlayer.play(self.board)
         self.assertEqual( self.board.grid[4], self.computerPlayer.token )
 
