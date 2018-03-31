@@ -7,6 +7,8 @@ from computer_player import ComputerPlayer
 from board import Board
 from display_board import DisplayBoard
 from handle_player_input import HandlePlayerInput
+import os
+
 
 class Game:
   def __init__(self):
@@ -37,6 +39,8 @@ class Game:
     self.displayBoard.logs(self.board)
     print('Game Over')
 
+    # Delete compiled *.pyc files after game over to keep file structure clean.
+    os.system("find . -name *.pyc -delete")
 
 
 if __name__ == '__main__':
