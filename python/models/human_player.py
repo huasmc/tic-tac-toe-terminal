@@ -1,7 +1,7 @@
 class HumanPlayer:
 
   def __init__(self):
-      self.token = 'X'
+      self.token = None
 # Can create class that takes input from terminal
 # pass input as argument for method. SOLID
 
@@ -13,3 +13,6 @@ class HumanPlayer:
         board.grid[spot] = self.token
       else:
         spot = None
+
+  def set_token(self, token):
+      self.token = token
