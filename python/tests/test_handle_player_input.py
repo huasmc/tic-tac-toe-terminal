@@ -10,8 +10,24 @@ class TestHandlePlayerInput(unittest.TestCase):
         self.handlePlayerInput = HandlePlayerInput()
 
     @patch('builtins.input', return_value='0')
-    def test_get_user_spot(self, input):
+    def test_get_player_spot(self, input):
         self.assertEqual(self.handlePlayerInput.get_player_spot(['0', '1']), 0)
+
+    @patch('builtins.input', return_value='X')
+    def test_get_player_token_X(self, input):
+        self.assertEqual(self.handlePlayerInput.get_player_token(), 'X')
+
+    @patch('builtins.input', return_value='O')
+    def test_get_player_token_O(self, input):
+        self.assertEqual(self.handlePlayerInput.get_player_token(), 'O')
+
+    @patch('builtins.input', return_value='Soiuoiug')
+    def test_get_player_token_bad_input_letter(self, input):
+        self.assertEqual(self.handlePlayerInput.get_player_token(), 'Please choose either X or O.')
+
+    @patch('builtins.input', return_value='45')
+    def test_get_player_token_bad_input_number(self, input):
+        self.assertEqual(self.handlePlayerInput.get_player_token(), 'Please choose either X or O.')
 
 if __name__ == '__main__':
     unittest.main()
