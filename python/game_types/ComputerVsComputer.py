@@ -59,7 +59,3 @@ class ComputerVsComputer:
           # Sets this token to player one.
           self.computerPlayer1.set_token(player_token)
           self.computerPlayer2.auto_token(self.computerPlayer1.token)
-
-if __name__ == '__main__':
-  game = ComputerVsComputer()
-  game.play()
