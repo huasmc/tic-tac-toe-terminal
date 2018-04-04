@@ -37,29 +37,29 @@ class ComputerVsComputer:
   def start(self):
     # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
-         if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
-             self.let_humanPlayer_play()
-             self.handleTurns.change()
-         else:
-             self.computerPlayer.play(self.board)
+         if(self.handleTurns.currentPlayerToken == self.computerPlayer1.token):
+             self.computerPlayer1.play(self.board)
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
-
-  def let_humanPlayer_play(self):
-      try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
-      spot = copy.deepcopy(try_spot)
-      self.humanPlayer.play(self.board, spot)
+         else:
+             self.computerPlayer2.play(self.board)
+             self.displayBoard.logs(self.board)
+             self.handleTurns.change()
 
   # Set tokens and first player
   def set_up(self):
       self.set_tokens()
-      self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
   # Set tokens
   def set_tokens(self):
-      while self.computerPlayer.token == None:
+      while self.computerPlayer2.token == None:
           # Asks viewer for the token that the first computer player is going to use.
           player_token = self.handlePlayerInput.get_first_player()
+          self.handleTurns.currentPlayerToken = player_token
           # Sets this token to player one.
           self.computerPlayer1.set_token(player_token)
-          self.computerPlayer2.set_token(self.computerPlayer1.token)
+          self.computerPlayer2.auto_token(self.computerPlayer1.token)
+
+if __name__ == '__main__':
+  game = ComputerVsComputer()
+  game.play()
