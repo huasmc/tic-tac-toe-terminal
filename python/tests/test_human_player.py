@@ -57,6 +57,14 @@ class TestHumanPlayer(unittest.TestCase):
         self.humanPlayer.set_token('O')
         self.assertEqual( self.humanPlayer.token, 'O')
 
+    def test_auto_assign_token_when_opponent_is_X(self):
+        self.humanPlayer.auto_token('X')
+        self.assertEqual( self.humanPlayer.token, 'O' )
+
+    def test_auto_assign_token_when_opponent_is_O(self):
+        self.humanPlayer.auto_token('O')
+        self.assertEqual( self.humanPlayer.token, 'X' )
+
 
 if __name__ == '__main__':
     unittest.main()
