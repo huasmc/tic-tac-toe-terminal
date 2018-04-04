@@ -9,8 +9,7 @@ class TestHandleTurns(unittest.TestCase):
 
     def setUp(self):
         self.handleTurns = HandleTurns()
-        self.humanPlayer = HumanPlayer()
-        self.computerPlayer = ComputerPlayer()
+
 
     def test_has_current_player_token_property(self):
         self.assertEqual( self.handleTurns.currentPlayerToken, None )
@@ -19,18 +18,14 @@ class TestHandleTurns(unittest.TestCase):
         self.handleTurns.set_currentPlayerToken('O')
         self.assertEqual( self.handleTurns.currentPlayerToken, 'O' )
 
-    def test_trigger_new_turn_is_computer(self):
+    def test_trigger_new_turn_is_X(self):
         self.handleTurns.set_currentPlayerToken('O')
-        self.humanPlayer.set_token('O')
-        self.computerPlayer.set_token('X')
-        self.handleTurns.trigger(self.humanPlayer, self.computerPlayer)
+        self.handleTurns.change()
         self.assertEqual( self.handleTurns.currentPlayerToken, 'X' )
 
-    def test_trigger_new_turn_is_human(self):
+    def test_trigger_new_turn_is_O(self):
         self.handleTurns.set_currentPlayerToken('X')
-        self.humanPlayer.set_token('O')
-        self.computerPlayer.set_token('X')
-        self.handleTurns.trigger(self.humanPlayer, self.computerPlayer)
+        self.handleTurns.change()
         self.assertEqual( self.handleTurns.currentPlayerToken, 'O' )
 
 if __name__ == '__main__':
