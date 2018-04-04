@@ -20,30 +20,30 @@ class TestComputerPlayer(unittest.TestCase):
 
     def test_computerPlayer_initializes_AI(self):
         # Computer player sets token and AI can initialize given the token.
-        self.computerPlayer.set_token('X')
+        self.computerPlayer.auto_token('X')
         self.computerPlayer.initialize_AI()
 
         self.assertIsNotNone( self.computerPlayer.AI )
 
     def test_computerPlayer_play_first_middle(self):
-        self.computerPlayer.set_token('X')
+        self.computerPlayer.auto_token('X')
         self.computerPlayer.play(self.board)
         self.assertEqual( self.board.grid[4], self.computerPlayer.token )
 
     def test_computerPlayer_set_token_X(self):
         opponents_token = 'X'
-        self.computerPlayer.set_token(opponents_token)
+        self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'O')
 
     def test_computerPlayer_set_token_O(self):
         opponents_token = 'O'
-        self.computerPlayer.set_token(opponents_token)
+        self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'X')
 
     def test_computerPlayer_fails_to_set_token(self):
         # If opponents token is not valid, computer shouldn't set token.
         opponents_token = 'R'
-        result = self.computerPlayer.set_token(opponents_token)
+        result = self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( result, 'Invalid opponents token')
 
 if __name__ == '__main__':

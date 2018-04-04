@@ -15,7 +15,7 @@ class ComputerPlayer:
         board.grid[spot] = self.token
         print(f"Computer has played on position {spot}.")
 
-  def set_token(self, opponents_token):
+  def auto_token(self, opponents_token):
      if ('O' != opponents_token != 'X' ):
       return 'Invalid opponents token'
      else:
