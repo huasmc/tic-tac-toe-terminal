@@ -35,7 +35,6 @@ class HandlePlayerInput:
         print(*game_types, sep='\n')
         game_type = input('Given the options above please choose the number representing your preferred game type: ')
         game_type_index = self.handle_game_type_input(game_type)
-        print(game_type_index)
         if game_type_index == None or not game_types[game_type_index] in game_types:
             print('Please choose a valid option from the following list')
             return self.get_game_type()
