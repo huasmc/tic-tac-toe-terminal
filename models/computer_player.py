@@ -1,9 +1,10 @@
 from .AI import MiniMax
+from .player import Player
 
-class ComputerPlayer:
+class ComputerPlayer(Player):
 
   def __init__(self):
-      self.token = None
+      super().__init__()
       self.AI = None
 
   def play(self, board):
