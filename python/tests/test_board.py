@@ -42,6 +42,10 @@ class TestBoard(unittest.TestCase):
         win_combinations = self.board.win_combinations
         self.assertEqual( len(win_combinations), 8 )
 
+    def test_board_available_spots(self):
+        available_spots = self.board.get_available_spots()
+        self.assertEqual( len(available_spots), 9 )
+
     def test_board_resets(self):
         self.board.grid[4] = 'X'
         self.board.reset()
