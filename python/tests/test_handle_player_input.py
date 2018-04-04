@@ -38,17 +38,17 @@ class TestHandlePlayerInput(unittest.TestCase):
         self.assertEqual(self.handlePlayerInput.get_game_type(), '2')
 
     @patch('builtins.input', return_value='3')
-    def test_get_game_type_bot_vs_bot(self, input):
+    def test_get_game_type_bot_vs_bot(self):
         self.assertEqual(self.handlePlayerInput.get_game_type(), '3')
 
-    def test_handle_game_type_input_1(self, input):
-        self.assertEqual(self.handlePlayerInput.handle_game_input('1'), 0)
+    def test_handle_game_type_input_1(self):
+        self.assertEqual(self.handlePlayerInput.handle_game_type_input('1'), 0)
 
-    def test_handle_game_type_input_2(self, input):
-        self.assertEqual(self.handlePlayerInput.handle_game_input('2'), 1)
+    def test_handle_game_type_input_2(self):
+        self.assertEqual(self.handlePlayerInput.handle_game_type_input('2'), 1)
 
-    def test_handle_game_type_input_3(self, input):
-        self.assertEqual(self.handlePlayerInput.handle_game_input('3'), 2)
+    def test_handle_game_type_input_3(self):
+        self.assertEqual(self.handlePlayerInput.handle_game_type_input('3'), 2)
 
 
     #
