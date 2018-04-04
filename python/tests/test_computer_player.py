@@ -30,21 +30,26 @@ class TestComputerPlayer(unittest.TestCase):
         self.computerPlayer.play(self.board)
         self.assertEqual( self.board.grid[4], self.computerPlayer.token )
 
-    def test_computerPlayer_set_token_X(self):
+    def test_computerPlayer_auto_token_X(self):
         opponents_token = 'X'
         self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'O')
 
-    def test_computerPlayer_set_token_O(self):
+    def test_computerPlayer_auto_token_O(self):
         opponents_token = 'O'
         self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'X')
 
-    def test_computerPlayer_fails_to_set_token(self):
-        # If opponents token is not valid, computer shouldn't set token.
+    def test_computerPlayer_fails_to_auto_token(self):
+        # If opponents token is not valid, computer shouldn't auto token.
         opponents_token = 'R'
         result = self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( result, 'Invalid opponents token')
+
+    def test_computerPlayer_set_token_O(self):
+        self.computerPlayer.set_token('X')
+        self.assertEqual( self.computerPlayer.token, 'X' )
+
 
 if __name__ == '__main__':
     unittest.main()
