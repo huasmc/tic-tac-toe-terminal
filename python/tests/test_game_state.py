@@ -58,8 +58,14 @@ class TestGameState(unittest.TestCase):
     def test_check_win_combination_eight_state(self):
         self.assertEqual( self.gameState.check_combination_state(self.board.win_combinations[7],self.board), False)
 
+    def test_check_tie_no_tie(self):
+        self.assertEqual( self.gameState.tie(self.board), False )
+
     def test_check_tie(self):
-        self.assertEqual( self.gameState.tie(self.board), False)
+        self.board.grid = ["X", "O", "X",
+                           "O", "X", "O",
+                           "O", "X", "O"]
+        self.assertEqual( self.gameState.tie(self.board), True )
 
 if __name__ == '__main__':
     unittest.main()
