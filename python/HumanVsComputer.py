@@ -10,8 +10,7 @@ from handle_player_input import HandlePlayerInput
 from handle_turns import HandleTurns
 import os
 
-
-class Game:
+class HumanVsComputer:
   def __init__(self):
     self.board = Board()
     self.displayBoard = DisplayBoard()
@@ -25,7 +24,7 @@ class Game:
   def play(self):
     # Choose tokens.
     self.set_up()
-    # Put the board on table.
+    # Show board.
     self.displayBoard.logs(self.board)
     # Start the game.
     self.start()
@@ -36,7 +35,6 @@ class Game:
     # Delete compiled *.pyc files after game over to keep file structure clean.
     os.system("find . -name *.pyc -delete")
 
-  # Start the game.
   def start(self):
     # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
@@ -58,16 +56,9 @@ class Game:
       self.set_tokens()
       self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
-
   # Set tokens
   def set_tokens(self):
       while self.computerPlayer.token == None:
           player_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer.set_token(player_token)
           self.computerPlayer.set_token(player_token)
-
-
-
-if __name__ == '__main__':
-  game = Game()
-  game.play()
