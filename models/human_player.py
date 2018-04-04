@@ -1,7 +1,8 @@
-class HumanPlayer:
+from .player import Player
+class HumanPlayer(Player):
 
   def __init__(self):
-      self.token = None
+      super().__init__()
 # Can create class that takes input from terminal
 # pass input as argument for method. SOLID
 
