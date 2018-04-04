@@ -61,4 +61,4 @@ class HumanVsComputer:
       while self.computerPlayer.token == None:
           player_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer.set_token(player_token)
-          self.computerPlayer.set_token(player_token)
+          self.computerPlayer.auto_token(player_token)

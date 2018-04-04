@@ -62,7 +62,3 @@ class HumanVsHuman:
           player1_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer1.set_token(player1_token)
           self.humanPlayer2.auto_token(player1_token)
-
-if __name__ == '__main__':
-  game = HumanVsHuman()
-  game.play()
