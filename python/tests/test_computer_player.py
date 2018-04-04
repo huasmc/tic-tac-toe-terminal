@@ -55,6 +55,5 @@ class TestComputerPlayer(unittest.TestCase):
         self.assertEqual( self.computerPlayer.token, 'O')
 
 
-
 if __name__ == '__main__':
     unittest.main()
