@@ -56,7 +56,7 @@ class Game:
   # Set tokens and first player
   def set_up(self):
       self.set_tokens()
-      self.currentPlayerToken = self.handlePlayerInput.get_first_player()
+      self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
 
   # Set tokens
