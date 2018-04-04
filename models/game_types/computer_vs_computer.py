@@ -45,6 +45,7 @@ class ComputerVsComputer:
              print(f"Computer {self.computerPlayer2.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
+     self.end_game()
 
   # Set tokens and first player
   def set_up(self):
@@ -59,3 +60,10 @@ class ComputerVsComputer:
           # Sets this token to player one.
           self.computerPlayer1.set_token(player_token)
           self.computerPlayer2.auto_token(self.computerPlayer1.token)
+
+  def end_game(self):
+      if (self.gameState.check_win(self.board)[0]):
+        winner = self.gameState.check_win()[1][0]
+        print(f"{winner} won!")
+      else:
+        print("It's a tie!")
