@@ -15,9 +15,12 @@ class TestHandleTurns(unittest.TestCase):
     def test_has_current_player_token_property(self):
         self.assertEqual( self.handleTurns.currentPlayerToken, None )
 
+    def test_sets_current_player_token(self):
+        self.handleTurns.set_currentPlayerToken('O')
+        self.assertEqual( self.handleTurns.currentPlayerToken, 'O' )
 
     def test_trigger_new_turn_is_computer(self):
         self.humanPlayer.set_token('O')
         self.computerPlayer.set_token('X')
         self.handleTurns.trigger(self.humanPlayer, self.computerPlayer)
-        self.assertEqual( self.handleTurns.currentPlayerToken, 'X')
+        self.assertEqual( self.handleTurns.currentPlayerToken, 'X' )
