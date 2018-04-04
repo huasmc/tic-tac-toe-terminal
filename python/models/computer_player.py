@@ -20,14 +20,17 @@ class ComputerPlayer:
       return 'Invalid opponents token'
      else:
           if (opponents_token == 'X'):
-              self.token = 'O'
+              self.set_token('O')
           else:
-                self.token = 'X'
+              self.set_token('X')
           self.initialize_AI()
 
   def initialize_AI(self):
       if( self.token != None):
           self.AI = MiniMax(self.token)
+
+  def set_token(self, token):
+      self.token = token
 
 
       #
