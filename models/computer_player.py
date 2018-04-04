@@ -1,5 +1,5 @@
 from .AI import MiniMax
-from .player import Player
+from .abstracts.player import Player
 
 class ComputerPlayer(Player):
 

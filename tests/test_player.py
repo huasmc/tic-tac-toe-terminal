@@ -1,5 +1,5 @@
 import unittest
-from models.player import Player
+from models.abstracts.player import Player
 from models.board import Board
 
 class TestPlayer(unittest.TestCase):
