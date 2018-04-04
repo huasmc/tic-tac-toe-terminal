@@ -41,7 +41,7 @@ class Game:
      while not self.gameState.finished(self.board):
          self.handle_turns()
 
-  def let_human_player_play(self):
+  def let_humanPlayer_play(self):
       try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
       spot = copy.deepcopy(try_spot)
       self.humanPlayer.play(self.board, spot)
@@ -52,7 +52,7 @@ class Game:
 
   def handle_turns(self):
       if(self.humanPlayer.token == self.currentPlayerToken):
-          self.let_human_player_play()
+          self.let_humanPlayer_play()
           self.currentPlayerToken = self.computerPlayer.token
           return
       else:
