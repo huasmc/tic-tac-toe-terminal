@@ -1,4 +1,6 @@
 import copy
+from pprint import pprint
+
 class HandlePlayerInput:
 
     def get_player_spot(self, available_spots):
@@ -28,6 +30,26 @@ class HandlePlayerInput:
             return self.get_first_player()
         else:
             return first_player
+
+    def get_game_type(self):
+        game_types = ["1. Human Vs Bot", "2. Human Vs Human", "3. Bot Vs Bot"]
+        # pprint(game_types)
+        game_type = input('Given the options above please choose the number representing your preferred game type: ')
+        game_type_index = self.handle_game_type_input(game_type)
+        if not game_types[game_type_index] in game_types:
+            print('Please choose a valid option from the following list')
+            return self.get_game_type()
+        else:
+            return game_type
+
+    def handle_game_type_input(self, game_type):
+        if (game_type == '1'):
+            return 0
+        elif (game_type == '2'):
+            return 1
+        elif (game_type == '3'):
+            return 2
+        return 'invalid'
 
 #
 # if __name__ == '__main__':
