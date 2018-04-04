@@ -1,8 +1,6 @@
 import unittest
 from unittest.mock import patch
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from handle_player_input import HandlePlayerInput
+from models.handle_player_input import HandlePlayerInput
 
 class TestHandlePlayerInput(unittest.TestCase):
 
@@ -31,15 +29,15 @@ class TestHandlePlayerInput(unittest.TestCase):
 
     @patch('builtins.input', return_value='1')
     def test_get_game_type_human_vs_bot(self, input):
-        self.assertEqual(self.handlePlayerInput.get_game_type(), '1')
+        self.assertEqual(self.handlePlayerInput.get_game_type(), 0)
 
     @patch('builtins.input', return_value='2')
     def test_get_game_type_human_vs_human(self, input):
-        self.assertEqual(self.handlePlayerInput.get_game_type(), '2')
-        
-    @patch('builtins.input', return_value='2')
-    def test_get_game_type_human_vs_human(self, input):
-        self.assertEqual(self.handlePlayerInput.get_game_type(), '2')
+        self.assertEqual(self.handlePlayerInput.get_game_type(), 1)
+
+    @patch('builtins.input', return_value='3')
+    def test_get_game_type_human_vs_bot(self, input):
+        self.assertEqual(self.handlePlayerInput.get_game_type(), 2)
 
 
     def test_handle_game_type_input_1(self):

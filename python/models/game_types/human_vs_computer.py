@@ -1,21 +1,20 @@
-import sys
 import copy
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from game_state import GameState
-from human_player import HumanPlayer
-from board import Board
-from display_board import DisplayBoard
-from handle_player_input import HandlePlayerInput
-from handle_turns import HandleTurns
+from ..game_state import GameState
+from ..human_player import HumanPlayer
+from ..computer_player import ComputerPlayer
+from ..board import Board
+from ..display_board import DisplayBoard
+from ..handle_player_input import HandlePlayerInput
+from ..handle_turns import HandleTurns
 import os
 
-class HumanVsHuman:
+class HumanVsComputer:
   def __init__(self):
     self.board = Board()
     self.displayBoard = DisplayBoard()
     self.gameState = GameState()
-    self.humanPlayer1 = HumanPlayer()
-    self.humanPlayer2 = HumanPlayer()
+    self.humanPlayer = HumanPlayer()
+    self.computerPlayer = ComputerPlayer()
     self.handlePlayerInput = HandlePlayerInput()
     self.gameState = GameState()
     self.handleTurns = HandleTurns()
@@ -37,19 +36,18 @@ class HumanVsHuman:
   def start(self):
     # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
-         if(self.handleTurns.currentPlayerToken == self.humanPlayer1.token):
-             self.let_humanPlayer_play(self.humanPlayer1)
-             self.displayBoard.logs(self.board)
+         if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
+             self.let_humanPlayer_play()
              self.handleTurns.change()
          else:
-             self.let_humanPlayer_play(self.humanPlayer2)
+             self.computerPlayer.play(self.board)
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
 
-  def let_humanPlayer_play(self, player):
+  def let_humanPlayer_play(self):
       try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
       spot = copy.deepcopy(try_spot)
-      player.play(self.board, spot)
+      self.humanPlayer.play(self.board, spot)
 
   # Set tokens and first player
   def set_up(self):
@@ -58,7 +56,7 @@ class HumanVsHuman:
 
   # Set tokens
   def set_tokens(self):
-      while self.humanPlayer1.token == None and self.humanPlayer2.token == None:
-          player1_token = self.handlePlayerInput.get_player_token()
-          self.humanPlayer1.set_token(player1_token)
-          self.humanPlayer2.auto_token(player1_token)
+      while self.computerPlayer.token == None:
+          player_token = self.handlePlayerInput.get_player_token()
+          self.humanPlayer.set_token(player_token)
+          self.computerPlayer.auto_token(player_token)

@@ -1,9 +1,7 @@
 import unittest
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from handle_turns import HandleTurns
-from human_player import HumanPlayer
-from computer_player import ComputerPlayer
+from models.handle_turns import HandleTurns
+from models.human_player import HumanPlayer
+from models.computer_player import ComputerPlayer
 
 class TestHandleTurns(unittest.TestCase):
 

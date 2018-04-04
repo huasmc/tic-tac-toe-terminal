@@ -1,10 +1,7 @@
-import sys
-import copy
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/game_types')
-from computer_vs_computer import ComputerVsComputer
-from human_vs_computer import HumanVsComputer
-from human_vs_human import HumanVsHuman
-from handle_player_input import HandlePlayerInput
+from models.game_types.computer_vs_computer import ComputerVsComputer
+from models.game_types.human_vs_computer import HumanVsComputer
+from models.game_types.human_vs_human import HumanVsHuman
+from models.handle_player_input import HandlePlayerInput
 
 class Game:
 

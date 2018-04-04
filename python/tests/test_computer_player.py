@@ -1,8 +1,6 @@
 import unittest
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from computer_player import ComputerPlayer
-from board import Board
+from models.computer_player import ComputerPlayer
+from models.board import Board
 
 class TestComputerPlayer(unittest.TestCase):
 # Diferent test cases pending.

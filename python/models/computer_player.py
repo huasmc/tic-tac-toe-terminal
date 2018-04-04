@@ -1,4 +1,4 @@
-from AI import MiniMax
+from .AI import MiniMax
 
 class ComputerPlayer:
 

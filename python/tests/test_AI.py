@@ -1,8 +1,6 @@
 import unittest
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from AI import MiniMax
-from board import Board
+from models.AI import MiniMax
+from models.board import Board
 
 class TestAI(unittest.TestCase):
 # Different test cases must be done for each method.

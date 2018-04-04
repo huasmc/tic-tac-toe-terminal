@@ -1,5 +1,5 @@
-from game_state import GameState
-from display_board import DisplayBoard
+from .game_state import GameState
+from .display_board import DisplayBoard
 import copy
 import random
 

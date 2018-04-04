@@ -1,8 +1,6 @@
 import unittest
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from game_state import GameState
-from board import Board
+from models.game_state import GameState
+from models.board import Board
 
 class TestGameState(unittest.TestCase):
 

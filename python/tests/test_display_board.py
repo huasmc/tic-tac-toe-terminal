@@ -1,8 +1,6 @@
 import unittest
-import sys
-sys.path.append('/Users/huascar/Projects/8th-light-tictactoe/solution/python/models')
-from display_board import DisplayBoard
-from board import Board
+from models.display_board import DisplayBoard
+from models.board import Board
 import io
 
 class TestDisplayBoard(unittest.TestCase):
