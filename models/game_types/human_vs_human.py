@@ -36,11 +36,13 @@ class HumanVsHuman:
     # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer1.token):
-             self.let_humanPlayer_play(self.humanPlayer1)
+             spot = self.let_humanPlayer_play(self.humanPlayer1)
+             print(f"Human {self.humanPlayer1.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
          else:
-             self.let_humanPlayer_play(self.humanPlayer2)
+             spot = self.let_humanPlayer_play(self.humanPlayer2)
+             print(f"Human {self.humanPlayer2.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
 
@@ -48,6 +50,7 @@ class HumanVsHuman:
       try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
       spot = copy.deepcopy(try_spot)
       player.play(self.board, spot)
+      return spot
 
   # Set tokens and first player
   def set_up(self):
