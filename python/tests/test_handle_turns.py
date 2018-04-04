@@ -11,3 +11,6 @@ class TestHandleTurns(unittest.TestCase):
         self.handleTurns = HandleTurns()
         self.humanPlayer = HumanPlayer()
         self.computerPlayer = ComputerPlayer()
+
+    def test_has_current_player_property(self):
+        self.assertEqual( self.handleTurns.currentPlayer, None )
