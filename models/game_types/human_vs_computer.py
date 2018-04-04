@@ -70,5 +70,5 @@ class HumanVsComputer:
       if (self.gameState.check_win(self.board)[0]):
         winner = self.gameState.check_win(self.board)[1][0]
         print(f"Player with token {winner} won!")
-      else:
+      elif (self.gameState.finished(self.board)):
         print("It's a tie!")

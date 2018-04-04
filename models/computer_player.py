@@ -11,6 +11,7 @@ class ComputerPlayer:
       #   spot = int(4)
       #   board.grid[spot] = self.token
       # else:
+        print('Computer: Wait Im thinking..')
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
         return spot
