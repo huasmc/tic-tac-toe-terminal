@@ -24,3 +24,9 @@ class TestHandleTurns(unittest.TestCase):
         self.computerPlayer.set_token('X')
         self.handleTurns.trigger(self.humanPlayer, self.computerPlayer)
         self.assertEqual( self.handleTurns.currentPlayerToken, 'X' )
+
+    def test_trigger_new_turn_is_human(self):
+        self.humanPlayer.set_token('O')
+        self.computerPlayer.set_token('X')
+        self.handleTurns.trigger(self.humanPlayer, self.computerPlayer)
+        self.assertEqual( self.handleTurns.currentPlayerToken, 'O' )
