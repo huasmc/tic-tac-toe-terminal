@@ -7,6 +7,7 @@ from tests.test_game_state import TestGameState
 from tests.test_handle_player_input import TestHandlePlayerInput
 from tests.test_handle_turns import TestHandleTurns
 from tests.test_human_player import TestHumanPlayer
+from tests.test_player import TestPlayer
 
 if __name__ == '__main__':
     unittest.main()
