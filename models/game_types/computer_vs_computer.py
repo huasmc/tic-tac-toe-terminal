@@ -37,12 +37,12 @@ class ComputerVsComputer:
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.computerPlayer1.token):
              spot = self.computerPlayer1.play(self.board)
-             print(f"{self.computerPlayer1.token} has played in spot {spot}")
+             print(f"Computer {self.computerPlayer1.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
          else:
              spot = self.computerPlayer2.play(self.board)
-             print(f"{self.computerPlayer2.token} has played in spot {spot}")
+             print(f"Computer {self.computerPlayer2.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
 

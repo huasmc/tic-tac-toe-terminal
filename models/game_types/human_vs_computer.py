@@ -40,7 +40,8 @@ class HumanVsComputer:
              self.let_humanPlayer_play()
              self.handleTurns.change()
          else:
-             self.computerPlayer.play(self.board)
+             spot = self.computerPlayer.play(self.board)
+             print(f"Computer {self.computerPlayer.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
 
