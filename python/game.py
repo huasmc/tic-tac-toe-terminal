@@ -21,25 +21,22 @@ class Game:
     self.gameState = GameState()
 
   def play(self):
-    # Set tokens
+    # Choose tokens.
     self.set_up()
-
-    # Print the board
+    # Put the board on table.
     self.displayBoard.logs(self.board)
-
     # Start the game.
     self.start()
-
-    # Print the finished board.
+    # Print the board when finished.
     self.displayBoard.logs(self.board)
+    # Inform the player the game has finished.
     print('Game Over')
-
     # Delete compiled *.pyc files after game over to keep file structure clean.
     os.system("find . -name *.pyc -delete")
 
   # Start the game.
   def start(self):
-    # Prevent the game from exit before finishing.
+    # Prevent the game from exit before finishing using 'while not' loop.
     while not self.gameState.finished(self.board):
         try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
         spot = copy.deepcopy(try_spot)
