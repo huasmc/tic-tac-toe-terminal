@@ -1,29 +1,44 @@
 ## Tic-tac-toe
 
-*Still in development, this is the first stable version*
-
-This project started as one tightly-coupled file that allowed the game to be played but very difficult to add functionality. It also didn't have a competent opponent/computer player because of it's previous 'thinking' algorithm.
+This project started as one tightly-coupled file that allowed the game to be played but made it difficult to add functionality. It also didn't have a competent opponent/computer player because of it's previous 'thinking' algorithm. 
 
 It's been improved by refactoring all the code following SOLID principles and implementing MiniMax algorithm to make the computer player intelligent.
 
-The file structure is very clear and it's separated in different components that integrate together in one file to make the game. Each component has been unit tested but more tests could be added.
+The file structure is very clear and it's separated in different components that integrate together in three files to form three different game type classes.
+
+- Human Vs Human
+- Human Vs Computer
+- Computer Vs Computer -> Fun!
+
+Each component has been unit tested including unittest's mock package to ensure maintainability.
+
+## Requirements
+
+You only need python v3.6 to run the tests and the game. Tests use python's 'unittest', 'unnittest.mock' and some components use python's 'random' and 'copy'.
 
 ## How to run
 
-You'll need python version 3.6 to run the tests and the game. More detailed steps will be added soon but in the meantime try cloning the repo and running the 'game.py' file using the following command in terminal:
+- Clone this repo:
+```
+git clone https://github.com/HuascarMC/tictactoe-minimax
+```
+- Go into the new directory:
+```
+cd tictactoe-minimax
+```
+- Run all the tests, ensure they all pass (they should):
+```
+python3.6 core-test.py
+```
+- Run the game:
 ```
 python3.6 game.py
-```
-To run all tests, go into the 'tests' directory and run this command:
-NOTE: AI tests run slow because of it's algorithm. The internet says that python might also be one of the reasons.
-```
-python3.6 -m unittest
 ```
 
 ## Things to be added
 
-- UI
+- UI, currently runs in terminal.
 
-- More tests
+- More tests/test cases.
 
-- At the moment only (human vs computer) can be played (to_add)-> Different game types (human vs human, computer vs computer)
+- On first two moves AI's minimax algorithm runs slow due the depth being high, first computer moves take around 3-4 seconds to load.
