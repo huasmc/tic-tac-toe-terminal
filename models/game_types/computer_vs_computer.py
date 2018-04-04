@@ -64,6 +64,6 @@ class ComputerVsComputer:
   def end_game(self):
       if (self.gameState.check_win(self.board)[0]):
         winner = self.gameState.check_win()[1][0]
-        print(f"{winner} won!")
+        print(f"Computer {winner} won!")
       else:
         print("It's a tie!")
