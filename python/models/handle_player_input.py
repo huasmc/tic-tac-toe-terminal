@@ -18,7 +18,7 @@ class HandlePlayerInput:
             return token
         else:
             print('Please choose either X or O.')
-            self.get_player_token()
+            return self.get_player_token()
 
     def get_first_player(self):
         first_player = input('Who would like to play first, X or O? ')
