@@ -24,10 +24,22 @@ class TestHandlePlayerInput(unittest.TestCase):
     @patch('builtins.input', return_value='X')
     def test_get_first_player_X(self, input):
         self.assertEqual(self.handlePlayerInput.get_first_player(), 'X')
-    
+
     @patch('builtins.input', return_value='O')
     def test_get_first_player_O(self, input):
         self.assertEqual(self.handlePlayerInput.get_first_player(), 'O')
+
+    @patch('builtins.input', return_value='1')
+    def test_get_game_type_human_vs_bot(self, input):
+        self.assertEqual(self.handlePlayerInput.get_game_type(), ['1', 'humanVsbot'])
+
+    @patch('builtins.input', return_value='2')
+    def test_get_game_type_human_vs_human(self, input):
+        self.assertEqual(self.handlePlayerInput.get_game_type(), ['2', 'humanVshuman'])
+
+    @patch('builtins.input', return_value='3')
+    def test_get_game_type_bot_vs_bot(self, input):
+        self.assertEqual(self.handlePlayerInput.get_game_type(), ['1', 'botVsbot'])
 
     #
     # @patch('builtins.input', return_value='Soiuoiug')
