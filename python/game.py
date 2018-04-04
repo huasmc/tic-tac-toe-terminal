@@ -20,31 +20,35 @@ class Game:
     self.handlePlayerInput = HandlePlayerInput()
     self.gameState = GameState()
 
-  def start_game(self):
+  def play(self):
     # Set tokens
-
-        self.set_up()
+    self.set_up()
 
     # Print the board
-        self.displayBoard.logs(self.board)
+    self.displayBoard.logs(self.board)
 
-        print('Enter [0-8]')
+    # Start the game.
+    self.start()
 
-        # loop through until the game was won or tied
-        while not self.gameState.finished(self.board):
-          try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
-          spot = copy.deepcopy(try_spot)
-          self.humanPlayer.play(self.board, spot)
+    # Print the finished board.
+    self.displayBoard.logs(self.board)
+    print('Game Over')
 
-          if not self.gameState.finished(self.board):
+    # Delete compiled *.pyc files after game over to keep file structure clean.
+    os.system("find . -name *.pyc -delete")
+
+  # Start the game.
+  def start(self):
+    # Prevent the game from exit before finishing.
+    while not self.gameState.finished(self.board):
+        try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
+        spot = copy.deepcopy(try_spot)
+        self.humanPlayer.play(self.board, spot)
+
+        if not self.gameState.finished(self.board):
             self.computerPlayer.play(self.board)
             self.displayBoard.logs(self.board)
 
-        self.displayBoard.logs(self.board)
-        print('Game Over')
-
-    # Delete compiled *.pyc files after game over to keep file structure clean.
-        os.system("find . -name *.pyc -delete")
 
   # Set tokens
   def set_up(self):
@@ -57,4 +61,4 @@ class Game:
 
 if __name__ == '__main__':
   game = Game()
-  game.start_game()
+  game.play()
