@@ -14,6 +14,11 @@ You'll need python version 3.6 to run the tests and the game. More detailed step
 ```
 python3.6 game.py
 ```
+To run all tests, go into the 'tests' directory and run this command:
+NOTE: AI tests run slow because of it's algorithm. The internet says that python might also be one of the reasons.
+```
+python3.6 -m unittest
+```
 
 ## Things to be added
 
@@ -21,4 +26,4 @@ python3.6 game.py
 
 - More tests
 
-- At the moment only (human vs computer) can be played (to_add)-> Different game types (human vs human, computer vs computer) 
+- At the moment only (human vs computer) can be played (to_add)-> Different game types (human vs human, computer vs computer)
