@@ -21,7 +21,7 @@ class HandlePlayerInput:
             self.get_player_token()
 
     def get_first_player(self):
-        first_player = input('Who would like to play first X or O?.')
+        first_player = input('Who would like to play first, X or O? ')
         valid_input = ['O', 'X']
         if not first_player in valid_input:
             print('Please choose a valid player token as first player.')
