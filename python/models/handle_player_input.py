@@ -1,5 +1,4 @@
 import copy
-from pprint import pprint
 
 class HandlePlayerInput:
 
@@ -33,14 +32,14 @@ class HandlePlayerInput:
 
     def get_game_type(self):
         game_types = ["1. Human Vs Bot", "2. Human Vs Human", "3. Bot Vs Bot"]
-        # pprint(game_types)
+        print(*game_types, sep='\n')
         game_type = input('Given the options above please choose the number representing your preferred game type: ')
         game_type_index = self.handle_game_type_input(game_type)
         if not game_types[game_type_index] in game_types:
             print('Please choose a valid option from the following list')
             return self.get_game_type()
         else:
-            return game_type
+            return game_type_index
 
     def handle_game_type_input(self, game_type):
         if (game_type == '1'):
