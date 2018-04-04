@@ -1,10 +1,12 @@
 import unittest
 from models.player import Player
+from models.board import Board
 
 class TestPlayer(unittest.TestCase):
 
     def setUp(self):
         self.player = Player()
+        self.board = Board()
 
     def test_has_token(self):
         self.assertEqual( self.player.token, None )
@@ -18,7 +20,7 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual( self.player.token, 'O' )
 
     def test_has_play_method(self):
-        self.assertNotNull( self.player.play() )
+        self.assertIsNotNone( self.player.play(self.board, 0 ) )
 
 
 if __name__ == '__main__':
