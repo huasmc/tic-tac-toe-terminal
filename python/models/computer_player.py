@@ -23,7 +23,7 @@ class ComputerPlayer:
               self.set_token('O')
           else:
               self.set_token('X')
-          self.initialize_AI()
+
 
   def initialize_AI(self):
       if( self.token != None):
@@ -31,6 +31,7 @@ class ComputerPlayer:
 
   def set_token(self, token):
       self.token = token
+      self.initialize_AI()
 
 
       #
