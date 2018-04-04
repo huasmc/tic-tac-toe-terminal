@@ -37,17 +37,22 @@ class HumanVsComputer:
     # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
-             self.let_humanPlayer_play()
-             self.handleTurns.change()
-         else:
-             self.computerPlayer.play(self.board)
+             spot = self.let_humanPlayer_play()
+             print(f"Human {self.humanPlayer.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
+         else:
+             spot = self.computerPlayer.play(self.board)
+             print(f"Computer {self.computerPlayer.token} has played in spot {spot}")
+             self.displayBoard.logs(self.board)
+             self.handleTurns.change()
+         self.end_game()
 
   def let_humanPlayer_play(self):
       try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
       spot = copy.deepcopy(try_spot)
       self.humanPlayer.play(self.board, spot)
+      return spot
 
   # Set tokens and first player
   def set_up(self):
@@ -60,3 +65,10 @@ class HumanVsComputer:
           player_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer.set_token(player_token)
           self.computerPlayer.auto_token(player_token)
+
+  def end_game(self):
+      if (self.gameState.check_win(self.board)[0]):
+        winner = self.gameState.check_win(self.board)[1][0]
+        print(f"Player with token {winner} won!")
+      else:
+        print("It's a tie!")

@@ -13,7 +13,7 @@ class ComputerPlayer:
       # else:
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
-        print(f"Computer has played on position {spot}.")
+        return spot
 
   def auto_token(self, opponents_token):
      if ('O' != opponents_token != 'X' ):
