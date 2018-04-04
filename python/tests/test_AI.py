@@ -30,16 +30,17 @@ class TestAI(unittest.TestCase):
     def test_best_spot_is_middle_if_empty(self):
         self.assertEqual( self.AI.get_best_spot(self.board), 4)
 
-    def test_maximized_spot(self):
+    def test_maximized_spot_case_winning(self):
         # Part of implementing the minimax algorithm is knowing which spot on board makes winning MORE possible.
-        # In this case the winning spot would be "8" for the opponent, AI should return that spot with the score '1'.
+        # In this case the winning spot would be "8", AI should return that spot with the score '1'.
         self.board.grid = ["X", "O", "X",
                            "O", "X", "5",
                            "O", "7", "8"]
         self.assertEqual( self.AI.maximized_spot(self.board), ['8', 1] )
 
-    def test_minimized_spot(self):
-        # Part of implementing the minimax algorithm is knowing which spot on board makes winning LESS possible.
+    def test_minimized_spot_case_losing(self):
+        # Part of implementing the minimax algorithm is knowing which spot on board makes winning MORE possible for the opponent.
+        # In this case the winning spot would be "0" for the opponent, AI should return that spot with the score '-1'.
         self.board.grid = ["0", "O", "X",
                            "O", "X", "5",
                            "O", "7", "8"]
