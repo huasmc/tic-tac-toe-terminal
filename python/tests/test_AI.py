@@ -32,12 +32,18 @@ class TestAI(unittest.TestCase):
 
     def test_maximized_spot(self):
         # Part of implementing the minimax algorithm is knowing which spot on board makes winning MORE possible.
-        print(" This may take a while, please be patient while AI's thought process is being tested..")
-        self.assertEqual( self.AI.maximized_spot(self.board), ['0', 0] )
+        # In this case the winning spot would be "8" for the opponent, AI should return that spot with the score '1'.
+        self.board.grid = ["X", "O", "X",
+                           "O", "X", "5",
+                           "O", "7", "8"]
+        self.assertEqual( self.AI.maximized_spot(self.board), ['8', 1] )
 
     def test_minimized_spot(self):
         # Part of implementing the minimax algorithm is knowing which spot on board makes winning LESS possible.
-        self.assertEqual( self.AI.minimized_spot(self.board), ['0', 0] )
+        self.board.grid = ["0", "O", "X",
+                           "O", "X", "5",
+                           "O", "7", "8"]
+        self.assertEqual( self.AI.minimized_spot(self.board), ['0', -1] )
 
     def test_get_score(self):
         # Each possible spot shoud have a score that represents it's ranking as winning spot.
