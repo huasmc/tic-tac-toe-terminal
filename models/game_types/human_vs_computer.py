@@ -46,6 +46,7 @@ class HumanVsComputer:
              print(f"Computer {self.computerPlayer.token} has played in spot {spot}")
              self.displayBoard.logs(self.board)
              self.handleTurns.change()
+         self.end_game()
 
   def let_humanPlayer_play(self):
       try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
@@ -64,3 +65,10 @@ class HumanVsComputer:
           player_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer.set_token(player_token)
           self.computerPlayer.auto_token(player_token)
+
+  def end_game(self):
+      if (self.gameState.check_win(self.board)[0]):
+        winner = self.gameState.check_win(self.board)[1][0]
+        print(f"{winner} won!")
+      else:
+        print("It's a tie!")
