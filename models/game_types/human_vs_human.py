@@ -10,7 +10,6 @@ import os
 class HumanVsHuman:
   def __init__(self):
     self.board = Board()
-    self.gameDisplay = GameDisplay()
     self.gameState = GameState()
     self.humanPlayer1 = HumanPlayer()
     self.humanPlayer2 = HumanPlayer()
@@ -20,23 +19,22 @@ class HumanVsHuman:
 
   def play(self):
     self.set_up()
-    self.gameDisplay.show(self.board)
+    GameDisplay.show(self.board)
     self.start()
-    self.gameDisplay.show(self.board)
-    print('Game Over')
-    os.system("find . -name *.pyc -delete")
+    GameDisplay.show(self.board)
+    GameDisplay.log('Game Over')
 
   def start(self):
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer1.token):
              spot = self.let_humanPlayer_play(self.humanPlayer1)
-             print(f"Human {self.humanPlayer1.token} has played in spot {spot}")
-             self.gameDisplay.show(self.board)
+             GameDisplay.log(f"Human {self.humanPlayer1.token} has played in spot {spot}")
+             GameDisplay.show(self.board)
              self.handleTurns.change()
          else:
              spot = self.let_humanPlayer_play(self.humanPlayer2)
-             print(f"Human {self.humanPlayer2.token} has played in spot {spot}")
-             self.gameDisplay.show(self.board)
+             GameDisplay.log(f"Human {self.humanPlayer2.token} has played in spot {spot}")
+             GameDisplay.show(self.board)
              self.handleTurns.change()
          self.end_game()
 
@@ -59,6 +57,6 @@ class HumanVsHuman:
   def end_game(self):
      if (self.gameState.check_win(self.board)[0]):
        winner = self.gameState.check_win(self.board)[1][0]
-       print(f"Human {winner} won!")
+       GameDisplay.log(f"Human {winner} won!")
      elif (self.gameState.finished(self.board)):
-       print("It's a tie!")
+       GameDisplay.log("It's a tie!")

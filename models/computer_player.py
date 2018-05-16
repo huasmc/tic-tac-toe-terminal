@@ -7,10 +7,9 @@ class ComputerPlayer(Player):
   def __init__(self):
       super().__init__()
       self.AI = None
-      self.gameDisplay = GameDisplay()
 
   def play(self, board):
-        self.gameDisplay.log("Wait, Computer is thinking..")
+        GameDisplay.log("Wait, Computer is thinking..")
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
         return spot
