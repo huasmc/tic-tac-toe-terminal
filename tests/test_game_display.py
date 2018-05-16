@@ -1,7 +1,9 @@
 import unittest
+import io
+from io import StringIO
+from unittest.mock import patch
 from models.game_display import GameDisplay
 from models.board import Board
-import io
 
 class TestGameDisplay(unittest.TestCase):
 
@@ -15,8 +17,10 @@ class TestGameDisplay(unittest.TestCase):
                  self.board.grid[3], self.board.grid[4], self.board.grid[5],
                  self.board.grid[6], self.board.grid[7], self.board.grid[8]))
 
-    def test_gameDisplay_log_text(self):
-        self.assertEqual( self.gameDisplay.log("text"), "text")
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_gameDisplay_log_game_over(self, mock_stdout):
+        self.gameDisplay.log('Game Over')
+        self.assertEqual('Game Over\n', mock_stdout.getvalue())
 
 
 if __name__ == '__main__':

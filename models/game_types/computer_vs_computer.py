@@ -24,7 +24,6 @@ class ComputerVsComputer:
     self.start()
     self.gameDisplay.show(self.board)
     print('Game Over')
-    os.system("find . -name *.pyc -delete")
 
   def start(self):
      while not self.gameState.finished(self.board):
