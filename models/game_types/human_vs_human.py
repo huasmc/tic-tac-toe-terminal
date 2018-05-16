@@ -2,7 +2,7 @@ import copy
 from ..game_state import GameState
 from ..human_player import HumanPlayer
 from ..board import Board
-from ..display_board import DisplayBoard
+from ..game_display import GameDisplay
 from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 import os
@@ -10,7 +10,7 @@ import os
 class HumanVsHuman:
   def __init__(self):
     self.board = Board()
-    self.displayBoard = DisplayBoard()
+    self.gameDisplay = GameDisplay()
     self.gameState = GameState()
     self.humanPlayer1 = HumanPlayer()
     self.humanPlayer2 = HumanPlayer()
@@ -20,9 +20,9 @@ class HumanVsHuman:
 
   def play(self):
     self.set_up()
-    self.displayBoard.logs(self.board)
+    self.gameDisplay.show(self.board)
     self.start()
-    self.displayBoard.logs(self.board)
+    self.gameDisplay.show(self.board)
     print('Game Over')
     os.system("find . -name *.pyc -delete")
 
@@ -31,12 +31,12 @@ class HumanVsHuman:
          if(self.handleTurns.currentPlayerToken == self.humanPlayer1.token):
              spot = self.let_humanPlayer_play(self.humanPlayer1)
              print(f"Human {self.humanPlayer1.token} has played in spot {spot}")
-             self.displayBoard.logs(self.board)
+             self.gameDisplay.show(self.board)
              self.handleTurns.change()
          else:
              spot = self.let_humanPlayer_play(self.humanPlayer2)
              print(f"Human {self.humanPlayer2.token} has played in spot {spot}")
-             self.displayBoard.logs(self.board)
+             self.gameDisplay.show(self.board)
              self.handleTurns.change()
          self.end_game()
 
@@ -45,11 +45,11 @@ class HumanVsHuman:
       spot = copy.deepcopy(try_spot)
       player.play(self.board, spot)
       return spot
-  
+
   def set_up(self):
       self.set_tokens()
       self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
-  
+
   def set_tokens(self):
       while self.humanPlayer1.token == None and self.humanPlayer2.token == None:
           player1_token = self.handlePlayerInput.get_player_token()

@@ -2,7 +2,7 @@ import copy
 from ..game_state import GameState
 from ..computer_player import ComputerPlayer
 from ..board import Board
-from ..display_board import DisplayBoard
+from ..game_display import GameDisplay
 from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 import os
@@ -10,7 +10,7 @@ import os
 class ComputerVsComputer:
   def __init__(self):
     self.board = Board()
-    self.displayBoard = DisplayBoard()
+    self.gameDisplay = GameDisplay()
     self.gameState = GameState()
     self.computerPlayer1 = ComputerPlayer()
     self.computerPlayer2 = ComputerPlayer()
@@ -20,9 +20,9 @@ class ComputerVsComputer:
 
   def play(self):
     self.set_up()
-    self.displayBoard.logs(self.board)
+    self.gameDisplay.show(self.board)
     self.start()
-    self.displayBoard.logs(self.board)
+    self.gameDisplay.show(self.board)
     print('Game Over')
     os.system("find . -name *.pyc -delete")
 
@@ -31,12 +31,12 @@ class ComputerVsComputer:
          if(self.handleTurns.currentPlayerToken == self.computerPlayer1.token):
              spot = self.computerPlayer1.play(self.board)
              print(f"Computer {self.computerPlayer1.token} has played in spot {spot}")
-             self.displayBoard.logs(self.board)
+             self.gameDisplay.show(self.board)
              self.handleTurns.change()
          else:
              spot = self.computerPlayer2.play(self.board)
              print(f"Computer {self.computerPlayer2.token} has played in spot {spot}")
-             self.displayBoard.logs(self.board)
+             self.gameDisplay.show(self.board)
              self.handleTurns.change()
      self.end_game()
 
