@@ -20,21 +20,14 @@ class HumanVsComputer:
     self.handleTurns = HandleTurns()
 
   def play(self):
-    # Choose tokens.
     self.set_up()
-    # Show board.
     self.displayBoard.logs(self.board)
-    # Start the game.
     self.start()
-    # Print the board when finished.
     self.displayBoard.logs(self.board)
-    # Inform the player the game has finished.
     print('Game Over')
-    # Delete compiled *.pyc files after game over to keep file structure clean.
     os.system("find . -name *.pyc -delete")
 
   def start(self):
-    # Prevent the game from exit before finishing using 'while not' loop.
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
              spot = self.let_humanPlayer_play()
@@ -53,13 +46,11 @@ class HumanVsComputer:
       spot = copy.deepcopy(try_spot)
       self.humanPlayer.play(self.board, spot)
       return spot
-
-  # Set tokens and first player
+  
   def set_up(self):
       self.set_tokens()
       self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
-
-  # Set tokens
+  
   def set_tokens(self):
       while self.computerPlayer.token == None:
           player_token = self.handlePlayerInput.get_player_token()
