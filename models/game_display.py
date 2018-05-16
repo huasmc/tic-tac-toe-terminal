@@ -16,3 +16,7 @@ class GameDisplay:
     def prompt(text):
         input_value = input(text)
         return input_value
+
+    @staticmethod
+    def logAsList(array):
+        print(*array, sep='\n')
