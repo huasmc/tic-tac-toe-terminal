@@ -11,7 +11,6 @@ import os
 class HumanVsComputer:
   def __init__(self):
     self.board = Board()
-    self.gameDisplay = GameDisplay()
     self.gameState = GameState()
     self.humanPlayer = HumanPlayer()
     self.computerPlayer = ComputerPlayer()
@@ -21,23 +20,23 @@ class HumanVsComputer:
 
   def play(self):
     self.set_up()
-    self.gameDisplay.show(self.board)
+    GameDisplay.show(self.board)
     self.start()
-    self.gameDisplay.show(self.board)
-    print('Game Over')
-    os.system("find . -name *.pyc -delete")
+    GameDisplay.show(self.board)
+    GameDisplay.log('Game Over')
+
 
   def start(self):
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
              spot = self.let_humanPlayer_play()
-             print(f"Human {self.humanPlayer.token} has played in spot {spot}")
-             self.gameDisplay.show(self.board)
+             GameDisplay.log(f"Human {self.humanPlayer.token} has played in spot {spot}")
+             GameDisplay.show(self.board)
              self.handleTurns.change()
          else:
              spot = self.computerPlayer.play(self.board)
-             print(f"Computer {self.computerPlayer.token} has played in spot {spot}")
-             self.gameDisplay.show(self.board)
+             GameDisplay.log(f"Computer {self.computerPlayer.token} has played in spot {spot}")
+             GameDisplay.show(self.board)
              self.handleTurns.change()
          self.end_game()
 
@@ -60,6 +59,6 @@ class HumanVsComputer:
   def end_game(self):
       if (self.gameState.check_win(self.board)[0]):
         winner = self.gameState.check_win(self.board)[1][0]
-        print(f"Player with token {winner} won!")
+        GameDisplay.log(f"Player with token {winner} won!")
       elif (self.gameState.finished(self.board)):
-        print("It's a tie!")
+        GameDisplay.log1("It's a tie!")
