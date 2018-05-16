@@ -1,4 +1,5 @@
 import unittest
+from io import StringIO
 from unittest.mock import patch
 from models.handle_player_input import HandlePlayerInput
 
@@ -28,17 +29,19 @@ class TestHandlePlayerInput(unittest.TestCase):
         self.assertEqual(self.handlePlayerInput.get_first_player(), 'O')
 
     @patch('builtins.input', return_value='1')
-    def test_get_game_type_human_vs_bot(self, input):
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
         self.assertEqual(self.handlePlayerInput.get_game_type(), 0)
 
     @patch('builtins.input', return_value='2')
-    def test_get_game_type_human_vs_human(self, input):
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_human(self, input, mock_stdout):
         self.assertEqual(self.handlePlayerInput.get_game_type(), 1)
 
     @patch('builtins.input', return_value='3')
-    def test_get_game_type_human_vs_bot(self, input):
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
         self.assertEqual(self.handlePlayerInput.get_game_type(), 2)
-
 
     def test_handle_game_type_input_1(self):
         self.assertEqual(self.handlePlayerInput.handle_game_type_input('1'), 0)
