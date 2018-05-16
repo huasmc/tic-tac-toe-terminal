@@ -49,19 +49,3 @@ class HandlePlayerInput:
         elif (game_type == '3'):
             return 2
         return None
-
-
-#
-# if __name__ == '__main__':
-#     h=HandlePlayerInput()
-#     h.get_player_spot()
-
-    # def get_player_token(text):
-    #     return input(text)
-
-# def answer():
-#     ans = get_input('enter yes or no')
-#     if ans == 'yes':
-#         return 'you entered yes'
-#     if ans == 'no':
-#         return 'you entered no'
