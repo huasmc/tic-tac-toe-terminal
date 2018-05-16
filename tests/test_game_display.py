@@ -24,6 +24,12 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.log('Game Over')
         self.assertEqual( mock_stdout.getvalue(), 'Game Over\n')
 
+    @patch('builtins.input', return_value='0')
+    def test_prompt_input(self, input):
+        self.assertEqual( self.gameDisplay.prompt('Choose 0: '), 0 )
+    #
+    # @patch('sys.stdout', new_callable=StringIO)
+    #         self.assertEqual( mock_stdout.getvalue(), 'Choose 0: ')
 
 if __name__ == '__main__':
     unittest.main()
