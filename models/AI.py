@@ -15,20 +15,14 @@ class MiniMax:
             self.opponenttoken = 'X'
 
     def get_best_spot(self, board):
-        # Play in the middle if it's empty.
         if ( board.grid[4] != "X" and board.grid[4] != "O" ):
          return 4
-        # Play random to avoid slow process if there's no risk of losing.
-        # elif ( len(board.get_available_spots()) > 7):
-        #  return int(self.get_random_spot(board))
-        # Play smart if there's risk of losing.
         else:
             spot = self.maximized_spot(board)
             return spot[0]
 
     def maximized_spot(self, board):
         clone_board = copy.deepcopy(board)
-        # find best spot to win
 
         bestscore = None
         bestspot = None
@@ -51,7 +45,6 @@ class MiniMax:
 
     def minimized_spot(self, board):
         clone_board = copy.deepcopy(board)
-        # ''' Find the minimized spot'''
 
         bestscore = None
         bestspot = None
@@ -77,12 +70,12 @@ class MiniMax:
         if self.gameState.finished(board):
             self.winner = self.gameState.check_win(board)[1]
             if self.winner  == self.token:
-                return 1 # Won
+                return 1
 
             elif self.winner == self.opponenttoken:
-                return -1 # Opponent won
+                return -1
 
-        return 0 # Draw
+        return 0 
 
     def get_random_spot(self, board):
         available_spots = board.get_available_spots()
