@@ -1,5 +1,5 @@
-class DisplayBoard:
-    def logs(self, board):
+class GameDisplay:
+    def show(self, board):
         result =  " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
             (board.grid[0], board.grid[1], board.grid[2],
                  board.grid[3], board.grid[4], board.grid[5],

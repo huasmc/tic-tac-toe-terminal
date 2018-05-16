@@ -1,5 +1,5 @@
 from .game_state import GameState
-from .display_board import DisplayBoard
+from .game_display import GameDisplay
 import copy
 import random
 
@@ -75,7 +75,7 @@ class MiniMax:
             elif self.winner == self.opponenttoken:
                 return -1
 
-        return 0 
+        return 0
 
     def get_random_spot(self, board):
         available_spots = board.get_available_spots()
