@@ -15,8 +15,8 @@ class TestGameDisplay(unittest.TestCase):
                  self.board.grid[3], self.board.grid[4], self.board.grid[5],
                  self.board.grid[6], self.board.grid[7], self.board.grid[8]))
 
-    def test_gameDisplay_show_text(self):
-        self.assertEqual( self.gameDisplay.show("text"), "text")
+    def test_gameDisplay_log_text(self):
+        self.assertEqual( self.gameDisplay.log("text"), "text")
 
 
 if __name__ == '__main__':

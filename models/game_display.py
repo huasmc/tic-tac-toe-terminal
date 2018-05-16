@@ -6,3 +6,7 @@ class GameDisplay:
                  board.grid[6], board.grid[7], board.grid[8])
         print(result)
         return result
+
+    def log(self, text):
+        print(text)
+        return text
