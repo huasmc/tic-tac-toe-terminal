@@ -8,3 +8,7 @@ class GameDisplay:
 
     def log(self, text):
         print(text)
+
+    def prompt(self, text):
+        input_value = input(text)
+        return input_value
