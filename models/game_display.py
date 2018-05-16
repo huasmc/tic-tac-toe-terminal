@@ -1,14 +1,18 @@
 class GameDisplay:
-    def show(self, board):
+
+    @staticmethod
+    def show(board):
         result =  " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n" % \
             (board.grid[0], board.grid[1], board.grid[2],
                  board.grid[3], board.grid[4], board.grid[5],
                  board.grid[6], board.grid[7], board.grid[8])
         print(result)
 
-    def log(self, text):
+    @staticmethod
+    def log(text):
         print(text)
 
-    def prompt(self, text):
+    @staticmethod
+    def prompt(text):
         input_value = input(text)
         return input_value
