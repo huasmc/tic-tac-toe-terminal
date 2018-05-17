@@ -24,5 +24,8 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_inherits_end_game_method(self):
         self.assertIsNotNone( self.game.end_game )
 
+    def test_bot_vs_bot_inherits_set_up_method(self):
+        self.assertIsNotNone( self.game.set_up )
+
 if __name__ == '__main__':
     unittest.main()
