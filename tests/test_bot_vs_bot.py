@@ -12,5 +12,8 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_inherits_game_state(self):
         self.assertIsNotNone( self.game.gameState )
 
+    def test_bot_vs_bot_inherits_handle_player_input(self):
+        self.assertIsNotNone( self.game.handlePlayerInput )
+
 if __name__ == '__main__':
     unittest.main()
