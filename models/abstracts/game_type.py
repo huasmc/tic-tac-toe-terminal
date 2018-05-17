@@ -5,6 +5,7 @@ from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 from ..game_display import GameDisplay
 from ..human_player import HumanPlayer
+import copy
 
 class GameType(metaclass=ABCMeta):
 

@@ -1,4 +1,3 @@
-import copy
 from ..human_player import HumanPlayer
 from ..abstracts.game_type import GameType
 from ..game_display import GameDisplay
