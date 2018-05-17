@@ -7,8 +7,15 @@ from ..handle_turns import HandleTurns
 
 class GameType(metaclass=ABCMeta):
 
- def __init__(self):
-    self.board = Board()
-    self.gameState = GameState()
-    self.handlePlayerInput = HandlePlayerInput()
-    self.handleTurns = HandleTurns()
+    def __init__(self):
+        self.board = Board()
+        self.gameState = GameState()
+        self.handlePlayerInput = HandlePlayerInput()
+        self.handleTurns = HandleTurns()
+
+    def play(self):
+        self.set_up()
+        GameDisplay.show(self.board)
+        self.start()
+        GameDisplay.show(self.board)
+        GameDisplay.log('Game Over')
