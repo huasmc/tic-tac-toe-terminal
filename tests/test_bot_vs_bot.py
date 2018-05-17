@@ -1,5 +1,6 @@
 import unittest
 from models.game_types.bot_vs_bot import BotVsBot
+from models.bot_player import BotPlayer
 from unittest.mock import patch
 
 class TestBotVsBot(unittest.TestCase):
@@ -33,6 +34,9 @@ class TestBotVsBot(unittest.TestCase):
 
     def test_bot_vs_bot_has_bot_player_two(self):
         self.assertIsNotNone( self.game.playerTwo )
+
+    def test_bot_vs_bot_player_one_is_bot_instance(self):
+        self.assertTrue( isinstance(self.game.playerOne, BotPlayer ) )
 
     @patch('builtins.input', return_value='X')
     def test_bot_vs_bot_can_set_up_first_player_X(self, input):
