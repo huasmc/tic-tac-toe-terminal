@@ -12,6 +12,8 @@ class Player(metaclass=ABCMeta):
  def set_token(self, token):
      raise NotImplementedError
 
- @abstractmethod
  def auto_token(self, opponents_token):
-     raise NotImplementedError
+     if(opponents_token == 'X'):
+        self.set_token('O')
+     else:
+        self.set_token('X')

@@ -12,9 +12,3 @@ class HumanPlayer(Player):
 
   def set_token(self, token):
       self.token = token
-
-  def auto_token(self, opponents_token):
-      if(opponents_token == 'X'):
-          self.set_token('O')
-      else:
-          self.set_token('X')

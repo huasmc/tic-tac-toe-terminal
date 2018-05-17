@@ -14,13 +14,6 @@ class ComputerPlayer(Player):
         board.grid[spot] = self.token
         return spot
 
-  def auto_token(self, opponents_token):
-          if (opponents_token == 'X'):
-              self.set_token('O')
-          else:
-              self.set_token('X')
-
-
   def initialize_AI(self):
       if( self.token != None):
           self.AI = MiniMax(self.token)
