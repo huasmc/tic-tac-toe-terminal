@@ -24,6 +24,9 @@ class GameType(metaclass=ABCMeta):
     def set_tokens(self):
         raise NotImplementedError
 
+    def set_up(self):
+        self.set_tokens()
+
     def end_game(self):
         if (self.gameState.check_win(self.board)[0]):
          winner = self.gameState.check_win(self.board)[1][0]

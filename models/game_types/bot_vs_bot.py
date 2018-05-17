@@ -23,9 +23,6 @@ class BotVsBot(GameType):
              self.handleTurns.change()
      self.end_game()
 
-  def set_up(self):
-      self.set_tokens()
-
   def set_tokens(self):
       while self.botPlayer2.token == None:
           player_token = self.handlePlayerInput.get_first_player()
