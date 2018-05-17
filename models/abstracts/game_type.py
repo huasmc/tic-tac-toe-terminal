@@ -19,3 +19,10 @@ class GameType(metaclass=ABCMeta):
         self.start()
         GameDisplay.show(self.board)
         GameDisplay.log('Game Over')
+
+    def end_game(self):
+        if (self.gameState.check_win(self.board)[0]):
+         winner = self.gameState.check_win(self.board)[1][0]
+         GameDisplay.log(f"Player with token {winner} won!")
+        elif (self.gameState.finished(self.board)):
+         GameDisplay.log1("It's a tie!")

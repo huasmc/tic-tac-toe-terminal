@@ -32,10 +32,3 @@ class BotVsBot(GameType):
           self.handleTurns.currentPlayerToken = player_token
           self.botPlayer1.set_token(player_token)
           self.botPlayer2.auto_token(self.botPlayer1.token)
-
-  def end_game(self):
-      if (self.gameState.check_win(self.board)[0]):
-        winner = self.gameState.check_win()[1][0]
-        GameDisplay.log(f"Bot {winner} won!")
-      elif (self.gameState.finished(self.board)):
-        GameDisplay.log("It's a tie!")
