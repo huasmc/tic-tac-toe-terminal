@@ -25,6 +25,7 @@ class GameType(metaclass=ABCMeta):
         raise NotImplementedError
 
     def set_up(self):
+        self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
         self.set_tokens()
 
     def end_game(self):

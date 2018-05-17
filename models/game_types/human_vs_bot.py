@@ -10,15 +10,6 @@ class HumanVsBot(GameType):
     self.humanPlayer = HumanPlayer()
     self.botPlayer = BotPlayer()
 
-
-  def play(self):
-    self.set_up()
-    GameDisplay.show(self.board)
-    self.start()
-    GameDisplay.show(self.board)
-    GameDisplay.log('Game Over')
-
-
   def start(self):
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.humanPlayer.token):
@@ -38,10 +29,6 @@ class HumanVsBot(GameType):
       spot = copy.deepcopy(try_spot)
       self.humanPlayer.play(self.board, spot)
       return spot
-
-  def set_up(self):
-      self.set_tokens()
-      self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
   def set_tokens(self):
       while self.botPlayer.token == None:

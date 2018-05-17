@@ -35,25 +35,25 @@ class TestBotVsBot(unittest.TestCase):
         self.assertIsNotNone( self.game.botPlayer2 )
 
     @patch('builtins.input', return_value='X')
-    def test_bot_vs_bot_can_set_tokens_first_player_X(self, input):
-        self.game.set_tokens()
+    def test_bot_vs_bot_can_set_up_first_player_X(self, input):
+        self.game.set_up()
         self.assertEqual( self.game.botPlayer1.token, 'X' )
         self.assertEqual( self.game.botPlayer2.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_bot_vs_bot_can_set_tokens_first_player_O(self, input):
-        self.game.set_tokens()
+    def test_bot_vs_bot_can_set_up_first_player_O(self, input):
+        self.game.set_up()
         self.assertEqual( self.game.botPlayer1.token, 'O' )
         self.assertEqual( self.game.botPlayer2.token, 'X' )
 
     @patch('builtins.input', return_value='X')
-    def test_bot_vs_bot_can_set_tokens_second_player_O(self, input):
-        self.game.set_tokens()
+    def test_bot_vs_bot_can_set_up_second_player_O(self, input):
+        self.game.set_up()
         self.assertEqual( self.game.botPlayer2.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_bot_vs_bot_can_set_tokens_second_player_X(self, input):
-        self.game.set_tokens()
+    def test_bot_vs_bot_can_set_up_second_player_X(self, input):
+        self.game.set_up()
         self.assertEqual( self.game.botPlayer2.token, 'X' )
 
 
