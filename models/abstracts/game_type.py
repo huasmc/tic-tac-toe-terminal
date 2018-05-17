@@ -22,9 +22,10 @@ class GameType(metaclass=ABCMeta):
         GameDisplay.show(self.board)
         GameDisplay.log('Game Over')
 
-    @abstractmethod
     def set_tokens(self):
-        raise NotImplementedError
+      while self.playerTwo.token == None:
+          self.playerOne.set_token(self.handleTurns.currentPlayerToken)
+          self.playerTwo.auto_token(self.playerOne.token)
 
     def set_up(self):
         self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()

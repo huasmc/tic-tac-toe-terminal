@@ -29,8 +29,3 @@ class HumanVsBot(GameType):
       spot = copy.deepcopy(try_spot)
       self.playerOne.play(self.board, spot)
       return spot
-
-  def set_tokens(self):
-      while self.playerTwo.token == None:
-          self.playerOne.set_token(self.handleTurns.currentPlayerToken)
-          self.playerTwo.auto_token(self.playerOne.token)
