@@ -1,22 +1,15 @@
 import copy
-from ..game_state import GameState
-from ..human_player import HumanPlayer
 from ..bot_player import BotPlayer
-from ..board import Board
+from ..human_player import HumanPlayer
+from ..abstracts.game_type import GameType
 from ..game_display import GameDisplay
-from ..handle_player_input import HandlePlayerInput
-from ..handle_turns import HandleTurns
-import os
 
-class HumanVsBot:
+class HumanVsBot(GameType):
   def __init__(self):
-    self.board = Board()
-    self.gameState = GameState()
+    super().__init__()
     self.humanPlayer = HumanPlayer()
     self.botPlayer = BotPlayer()
-    self.handlePlayerInput = HandlePlayerInput()
-    self.gameState = GameState()
-    self.handleTurns = HandleTurns()
+
 
   def play(self):
     self.set_up()
