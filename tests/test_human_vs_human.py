@@ -11,40 +11,40 @@ class TestHumanVsHuman(unittest.TestCase):
 
     def test_human_vs_human_is_game_type_subclass(self):
         self.assertTrue( issubclass( HumanVsHuman, GameType) )
-    # 
-    # def test_human_vs_human_inherits_board(self):
-    #     self.assertIsNotNone( self.game.board )
-    #
-    # def test_human_vs_human_inherits_game_state(self):
-    #     self.assertIsNotNone( self.game.gameState )
-    #
-    # def test_human_vs_human_inherits_handle_player_input(self):
-    #     self.assertIsNotNone( self.game.handlePlayerInput )
-    #
-    # def test_human_vs_human_inherits_handle_turns(self):
-    #     self.assertIsNotNone( self.game.handleTurns )
-    #
-    # def test_human_vs_human_inherits_play_method(self):
-    #     self.assertIsNotNone( self.game.play )
-    #
-    # def test_human_vs_human_inherits_end_game_method(self):
-    #     self.assertIsNotNone( self.game.end_game )
-    #
-    # def test_human_vs_human_inherits_set_up_method(self):
-    #     self.assertIsNotNone( self.game.set_up )
-    #
-    # def test_human_vs_human_has_bot_player_one(self):
-    #     self.assertIsNotNone( self.game.playerOne )
-    #
-    # def test_human_vs_human_has_bot_player_two(self):
-    #     self.assertIsNotNone( self.game.playerTwo )
-    #
-    # def test_human_vs_human_player_one_is_human_player_instance(self):
-    #     self.assertTrue( isinstance( self.game.playerOne, HumanPlayer) )
+
+    def test_human_vs_human_inherits_board(self):
+        self.assertIsNotNone( self.game.board )
+
+    def test_human_vs_human_inherits_game_state(self):
+        self.assertIsNotNone( self.game.gameState )
+
+    def test_human_vs_human_inherits_handle_player_input(self):
+        self.assertIsNotNone( self.game.handlePlayerInput )
+
+    def test_human_vs_human_inherits_handle_turns(self):
+        self.assertIsNotNone( self.game.handleTurns )
+
+    def test_human_vs_human_inherits_play_method(self):
+        self.assertIsNotNone( self.game.play )
+
+    def test_human_vs_human_inherits_end_game_method(self):
+        self.assertIsNotNone( self.game.end_game )
+
+    def test_human_vs_human_inherits_set_up_method(self):
+        self.assertIsNotNone( self.game.set_up )
+
+    def test_human_vs_human_has_bot_player_one(self):
+        self.assertIsNotNone( self.game.playerOne )
+
+    def test_human_vs_human_has_bot_player_two(self):
+        self.assertIsNotNone( self.game.playerTwo )
+
+    def test_human_vs_human_player_one_is_human_player_instance(self):
+        self.assertTrue( isinstance( self.game.playerOne, HumanPlayer) )
     #
     # def test_human_vs_human_player_two_is_bot_player_instance(self):
     #     self.assertTrue( isinstance( self.game.playerTwo, BotPlayer) )
-    #
+
     # @patch('builtins.input', return_value='X')
     # def test_human_vs_human_can_set_up_first_player_X(self, input):
     #     self.game.set_up()
