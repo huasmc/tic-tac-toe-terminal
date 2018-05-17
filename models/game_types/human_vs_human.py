@@ -1,21 +1,11 @@
 import copy
-from ..game_state import GameState
 from ..human_player import HumanPlayer
-from ..board import Board
-from ..game_display import GameDisplay
-from ..handle_player_input import HandlePlayerInput
-from ..handle_turns import HandleTurns
-import os
+from ..abstracts.game_type import GameType
 
-class HumanVsHuman:
+class HumanVsHuman(GameType):
   def __init__(self):
-    self.board = Board()
-    self.gameState = GameState()
-    self.humanPlayer1 = HumanPlayer()
-    self.humanPlayer2 = HumanPlayer()
-    self.handlePlayerInput = HandlePlayerInput()
-    self.gameState = GameState()
-    self.handleTurns = HandleTurns()
+    self.playerOne= HumanPlayer()
+    self.playerTwo = HumanPlayer()
 
   def play(self):
     self.set_up()
