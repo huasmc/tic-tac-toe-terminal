@@ -37,10 +37,14 @@ python3.6 game.py
 
 ## Things to be added/improved
 
+- Research, 'handle_play' method in GameType class and Liskov principle.
+
+- Improve game types test suites.
+
 - Method prompt in Game Display class needs test improvement.
 
 - UI, currently runs in terminal.
 
 - More tests/test cases.
 
-- On first two moves AI's minimax algorithm runs slow due the depth being high, first computer moves take around 3-4 seconds to load.
+- On first two moves AI's minimax algorithm runs slow due the depth being high, first computer move take around 3-4 seconds to load.
