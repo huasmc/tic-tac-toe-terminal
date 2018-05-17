@@ -37,7 +37,7 @@ python3.6 game.py
 
 ## Things to be added/improved
 
-- Game Display class method prompt needs test improvement.
+- Method prompt in Game Display class needs test improvement.
 
 - UI, currently runs in terminal.
 

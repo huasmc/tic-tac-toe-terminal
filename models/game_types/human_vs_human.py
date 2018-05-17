@@ -6,7 +6,7 @@ from ..game_display import GameDisplay
 class HumanVsHuman(GameType):
   def __init__(self):
     super().__init__()
-    self.playerOne= HumanPlayer()
+    self.playerOne = HumanPlayer()
     self.playerTwo = HumanPlayer()
 
   def start(self):

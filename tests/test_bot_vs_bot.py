@@ -33,6 +33,12 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_inherits_set_up_method(self):
         self.assertIsNotNone( self.game.set_up )
 
+    def test_bot_vs_bot_inherits_handle_play_method(self):
+        self.assertIsNotNone( self.game.handle_play )
+
+    def test_bot_vs_bot_inherits_handle_start_method(self):
+        self.assertIsNotNone( self.game.start )
+
     def test_bot_vs_bot_has_bot_player_one(self):
         self.assertIsNotNone( self.game.playerOne )
 
