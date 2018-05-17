@@ -9,13 +9,6 @@ class BotVsBot(GameType):
     self.botPlayer1 = BotPlayer()
     self.botPlayer2 = BotPlayer()
 
-  def play(self):
-    self.set_up()
-    GameDisplay.show(self.board)
-    self.start()
-    GameDisplay.show(self.board)
-    GameDisplay.log('Game Over')
-
   def start(self):
      while not self.gameState.finished(self.board):
          if(self.handleTurns.currentPlayerToken == self.botPlayer1.token):

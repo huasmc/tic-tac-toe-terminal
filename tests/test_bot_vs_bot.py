@@ -18,5 +18,8 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_inherits_handle_turns(self):
         self.assertIsNotNone( self.game.handleTurns )
 
+    def test_bot_vs_bot_inherits_play_method(self):
+        self.assertIsNotNone( self.game.play )
+
 if __name__ == '__main__':
     unittest.main()
