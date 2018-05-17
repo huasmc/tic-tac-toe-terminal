@@ -41,31 +41,31 @@ class TestHumanVsHuman(unittest.TestCase):
 
     def test_human_vs_human_player_one_is_human_player_instance(self):
         self.assertTrue( isinstance( self.game.playerOne, HumanPlayer) )
-    #
-    # def test_human_vs_human_player_two_is_bot_player_instance(self):
-    #     self.assertTrue( isinstance( self.game.playerTwo, BotPlayer) )
 
-    # @patch('builtins.input', return_value='X')
-    # def test_human_vs_human_can_set_up_first_player_X(self, input):
-    #     self.game.set_up()
-    #     self.assertEqual( self.game.playerOne.token, 'X' )
-    #     self.assertEqual( self.game.playerTwo.token, 'O' )
-    #
-    # @patch('builtins.input', return_value='O')
-    # def test_human_vs_human_can_set_up_first_player_O(self, input):
-    #     self.game.set_up()
-    #     self.assertEqual( self.game.playerOne.token, 'O' )
-    #     self.assertEqual( self.game.playerTwo.token, 'X' )
-    #
-    # @patch('builtins.input', return_value='X')
-    # def test_human_vs_human_can_set_up_second_player_O(self, input):
-    #     self.game.set_up()
-    #     self.assertEqual( self.game.playerTwo.token, 'O' )
-    #
-    # @patch('builtins.input', return_value='O')
-    # def test_human_vs_human_can_set_up_second_player_X(self, input):
-    #     self.game.set_up()
-    #     self.assertEqual( self.game.playerTwo.token, 'X' )
+    def test_human_vs_human_player_two_is_human_player_instance(self):
+        self.assertTrue( isinstance( self.game.playerTwo, HumanPlayer) )
+
+    @patch('builtins.input', return_value='X')
+    def test_human_vs_human_can_set_up_first_player_X(self, input):
+        self.game.set_up()
+        self.assertEqual( self.game.playerOne.token, 'X' )
+        self.assertEqual( self.game.playerTwo.token, 'O' )
+
+    @patch('builtins.input', return_value='O')
+    def test_human_vs_human_can_set_up_first_player_O(self, input):
+        self.game.set_up()
+        self.assertEqual( self.game.playerOne.token, 'O' )
+        self.assertEqual( self.game.playerTwo.token, 'X' )
+
+    @patch('builtins.input', return_value='X')
+    def test_human_vs_human_can_set_up_second_player_O(self, input):
+        self.game.set_up()
+        self.assertEqual( self.game.playerTwo.token, 'O' )
+
+    @patch('builtins.input', return_value='O')
+    def test_human_vs_human_can_set_up_second_player_X(self, input):
+        self.game.set_up()
+        self.assertEqual( self.game.playerTwo.token, 'X' )
 
 
 if __name__ == '__main__':

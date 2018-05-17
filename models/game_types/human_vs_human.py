@@ -17,14 +17,14 @@ class HumanVsHuman(GameType):
 
   def start(self):
      while not self.gameState.finished(self.board):
-         if(self.handleTurns.currentPlayerToken == self.humanPlayer1.token):
-             spot = self.let_humanPlayer_play(self.humanPlayer1)
-             GameDisplay.log(f"Human {self.humanPlayer1.token} has played in spot {spot}")
+         if(self.handleTurns.currentPlayerToken == self.playerOne.token):
+             spot = self.let_humanPlayer_play(self.playerOne)
+             GameDisplay.log(f"Human {self.playerOne.token} has played in spot {spot}")
              GameDisplay.show(self.board)
              self.handleTurns.change()
          else:
-             spot = self.let_humanPlayer_play(self.humanPlayer2)
-             GameDisplay.log(f"Human {self.humanPlayer2.token} has played in spot {spot}")
+             spot = self.let_humanPlayer_play(self.playerTwo)
+             GameDisplay.log(f"Human {self.playerTwo.token} has played in spot {spot}")
              GameDisplay.show(self.board)
              self.handleTurns.change()
          self.end_game()
@@ -40,10 +40,10 @@ class HumanVsHuman(GameType):
       self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
   def set_tokens(self):
-      while self.humanPlayer1.token == None and self.humanPlayer2.token == None:
+      while self.playerOne.token == None and self.playerTwo.token == None:
           player1_token = self.handlePlayerInput.get_player_token()
-          self.humanPlayer1.set_token(player1_token)
-          self.humanPlayer2.auto_token(player1_token)
+          self.playerOne.set_token(player1_token)
+          self.playerTwo.auto_token(player1_token)
 
   def end_game(self):
      if (self.gameState.check_win(self.board)[0]):
