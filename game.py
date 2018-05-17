@@ -1,13 +1,13 @@
-from models.game_types.computer_vs_computer import ComputerVsComputer
-from models.game_types.human_vs_computer import HumanVsComputer
+from models.game_types.bot_vs_bot import BotVsBot
+from models.game_types.human_vs_bot import HumanVsBot
 from models.game_types.human_vs_human import HumanVsHuman
 from models.handle_player_input import HandlePlayerInput
 
 class Game:
 
     def __init__(self):
-        self.botVsbot = ComputerVsComputer()
-        self.humanVsbot = HumanVsComputer()
+        self.botVsbot = BotVsBot()
+        self.humanVsbot = HumanVsBot()
         self.humanVshuman = HumanVsHuman()
         self.handlePlayerInput = HandlePlayerInput()
 

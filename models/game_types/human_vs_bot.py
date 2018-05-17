@@ -1,19 +1,19 @@
 import copy
 from ..game_state import GameState
 from ..human_player import HumanPlayer
-from ..computer_player import ComputerPlayer
+from ..bot_player import BotPlayer
 from ..board import Board
 from ..game_display import GameDisplay
 from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 import os
 
-class HumanVsComputer:
+class HumanVsBot:
   def __init__(self):
     self.board = Board()
     self.gameState = GameState()
     self.humanPlayer = HumanPlayer()
-    self.computerPlayer = ComputerPlayer()
+    self.botPlayer = BotPlayer()
     self.handlePlayerInput = HandlePlayerInput()
     self.gameState = GameState()
     self.handleTurns = HandleTurns()
@@ -34,8 +34,8 @@ class HumanVsComputer:
              GameDisplay.show(self.board)
              self.handleTurns.change()
          else:
-             spot = self.computerPlayer.play(self.board)
-             GameDisplay.log(f"Computer {self.computerPlayer.token} has played in spot {spot}")
+             spot = self.botPlayer.play(self.board)
+             GameDisplay.log(f"Bot {self.botPlayer.token} has played in spot {spot}")
              GameDisplay.show(self.board)
              self.handleTurns.change()
          self.end_game()
@@ -51,10 +51,10 @@ class HumanVsComputer:
       self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
 
   def set_tokens(self):
-      while self.computerPlayer.token == None:
+      while self.botPlayer.token == None:
           player_token = self.handlePlayerInput.get_player_token()
           self.humanPlayer.set_token(player_token)
-          self.computerPlayer.auto_token(player_token)
+          self.botPlayer.auto_token(player_token)
 
   def end_game(self):
       if (self.gameState.check_win(self.board)[0]):

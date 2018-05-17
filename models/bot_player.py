@@ -2,7 +2,7 @@ from .AI import MiniMax
 from .abstracts.player import Player
 from .game_display import GameDisplay
 
-class ComputerPlayer(Player):
+class BotPlayer(Player):
 
   def __init__(self):
       super().__init__()
