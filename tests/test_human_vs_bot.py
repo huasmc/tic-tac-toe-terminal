@@ -1,11 +1,15 @@
 import unittest
 from models.game_types.human_vs_bot import HumanVsBot
+from models.abstracts.game_type import GameType
 from unittest.mock import patch
 
 class TestHumanVsBot(unittest.TestCase):
 
     def setUp(self):
         self.game = HumanVsBot()
+
+    def test_human_vs_bot_is_game_type_subclass(self):
+        self.assertTrue( issubclass( HumanVsBot, GameType) )
 
     def test_human_vs_bot_inherits_board(self):
         self.assertIsNotNone( self.game.board )
