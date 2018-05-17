@@ -15,9 +15,6 @@ class ComputerPlayer(Player):
         return spot
 
   def auto_token(self, opponents_token):
-     if ('O' != opponents_token != 'X' ):
-      return 'Invalid opponents token'
-     else:
           if (opponents_token == 'X'):
               self.set_token('O')
           else:

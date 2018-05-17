@@ -35,9 +35,9 @@ python3.6 core-test.py
 python3.6 game.py
 ```
 
-## Things to be added
+## Things to be added/improved
 
-- Game Display class method prompt needs test improvement. 
+- Game Display class method prompt needs test improvement.
 
 - UI, currently runs in terminal.
 

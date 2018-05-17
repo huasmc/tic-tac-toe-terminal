@@ -38,11 +38,6 @@ class TestComputerPlayer(unittest.TestCase):
         self.computerPlayer.auto_token(opponents_token)
         self.assertEqual( self.computerPlayer.token, 'X')
 
-    def test_computerPlayer_fails_to_auto_token(self):
-        opponents_token = 'R'
-        result = self.computerPlayer.auto_token(opponents_token)
-        self.assertEqual( result, 'Invalid opponents token')
-
     def test_computerPlayer_set_token_X(self):
         self.computerPlayer.set_token('X')
         self.assertEqual( self.computerPlayer.token, 'X' )
