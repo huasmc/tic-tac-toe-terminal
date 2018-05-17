@@ -30,5 +30,8 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_has_bot_player_one(self):
         self.assertIsNotNone( self.game.botPlayer1 )
 
+    def test_bot_vs_bot_has_bot_player_two(self):
+        self.assertIsNotNone( self.game.botPlayer1 )
+
 if __name__ == '__main__':
     unittest.main()
