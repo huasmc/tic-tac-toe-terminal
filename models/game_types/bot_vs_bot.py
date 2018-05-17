@@ -5,17 +5,13 @@ from ..board import Board
 from ..game_display import GameDisplay
 from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
+from ..abstracts.game_type import GameType
 import os
 
-class ComputerVsComputer:
+class BotVsBot(GameType):
   def __init__(self):
-    self.board = Board()
-    self.gameState = GameState()
     self.computerPlayer1 = ComputerPlayer()
     self.computerPlayer2 = ComputerPlayer()
-    self.handlePlayerInput = HandlePlayerInput()
-    self.gameState = GameState()
-    self.handleTurns = HandleTurns()
 
   def play(self):
     self.set_up()
