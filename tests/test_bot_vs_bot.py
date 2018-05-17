@@ -1,5 +1,6 @@
 import unittest
 from models.game_types.bot_vs_bot import BotVsBot
+from models.abstracts.game_type import GameType
 from models.bot_player import BotPlayer
 from unittest.mock import patch
 
@@ -7,6 +8,9 @@ class TestBotVsBot(unittest.TestCase):
 
     def setUp(self):
         self.game = BotVsBot()
+
+    def test_bot_vs_bot_is_game_type_subclass(self):
+        self.assertTrue( issubclass(BotVsBot, GameType) )
 
     def test_bot_vs_bot_inherits_board(self):
         self.assertIsNotNone( self.game.board )
