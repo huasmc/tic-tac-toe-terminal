@@ -1,7 +1,7 @@
 import unittest
 from models.handle_turns import HandleTurns
 from models.human_player import HumanPlayer
-from models.computer_player import ComputerPlayer
+from models.bot_player import BotPlayer
 
 class TestHandleTurns(unittest.TestCase):
 

@@ -2,28 +2,17 @@ from .AI import MiniMax
 from .abstracts.player import Player
 from .game_display import GameDisplay
 
-class ComputerPlayer(Player):
+class BotPlayer(Player):
 
   def __init__(self):
       super().__init__()
       self.AI = None
-      self.gameDisplay = GameDisplay()
 
   def play(self, board):
-        self.gameDisplay.log("Wait, Computer is thinking..")
+        GameDisplay.log("Wait, Computer is thinking..")
         spot = int(self.AI.get_best_spot(board))
         board.grid[spot] = self.token
         return spot
-
-  def auto_token(self, opponents_token):
-     if ('O' != opponents_token != 'X' ):
-      return 'Invalid opponents token'
-     else:
-          if (opponents_token == 'X'):
-              self.set_token('O')
-          else:
-              self.set_token('X')
-
 
   def initialize_AI(self):
       if( self.token != None):

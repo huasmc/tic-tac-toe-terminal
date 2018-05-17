@@ -1,9 +1,11 @@
 import unittest
 import io
+import sys
 from io import StringIO
 from unittest.mock import patch
 from models.game_display import GameDisplay
 from models.board import Board
+from pynput.keyboard import Key, Controller
 
 class TestGameDisplay(unittest.TestCase):
 
@@ -22,8 +24,24 @@ class TestGameDisplay(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_gameDisplay_log_game_over(self, mock_stdout):
         self.gameDisplay.log('Game Over')
-        self.assertEqual( mock_stdout.getvalue(), 'Game Over\n')
+        self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_gameDisplay_log_as_list(self, mock_stdout):
+        self.gameDisplay.logAsList('Game')
+        self.assertEqual( mock_stdout.getvalue(), 'G\na\nm\ne\n' )
+
+    @patch('builtins.input', return_value='0')
+    def test_prompt_input(self, input):
+        self.assertEqual( self.gameDisplay.prompt('Choose 0: '), '0' )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_prompt_output(self, mock_stdout):
+        keyboard = Controller()
+        keyboard.press(Key.enter)
+        self.gameDisplay.prompt('Choose 0: ')
+        keyboard.release(Key.enter)
+        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: ')
 
 if __name__ == '__main__':
     unittest.main()

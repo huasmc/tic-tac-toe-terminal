@@ -1,6 +1,6 @@
 ## Tic-tac-toe
 
-This project started as one tightly-coupled file that allowed the game to be played but made it difficult to add functionality. It also didn't have a competent opponent/computer player because of it's previous 'thinking' algorithm. 
+This project started as one tightly-coupled file that allowed the game to be played but made it difficult to add functionality. It also didn't have a competent opponent/computer player because of it's previous 'thinking' algorithm.
 
 It's been improved by refactoring all the code following SOLID principles and implementing MiniMax algorithm to make the computer player intelligent.
 
@@ -35,7 +35,9 @@ python3.6 core-test.py
 python3.6 game.py
 ```
 
-## Things to be added
+## Things to be added/improved
+
+- Method prompt in Game Display class needs test improvement.
 
 - UI, currently runs in terminal.
 
