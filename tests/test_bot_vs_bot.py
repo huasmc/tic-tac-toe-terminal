@@ -38,6 +38,9 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_player_one_is_bot_instance(self):
         self.assertTrue( isinstance(self.game.playerOne, BotPlayer ) )
 
+    def test_bot_vs_bot_player_two_is_bot_instance(self):
+        self.assertTrue( isinstance(self.game.playerTwo, BotPlayer ) )
+
     @patch('builtins.input', return_value='X')
     def test_bot_vs_bot_can_set_up_first_player_X(self, input):
         self.game.set_up()
