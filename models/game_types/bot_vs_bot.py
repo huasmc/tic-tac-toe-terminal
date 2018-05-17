@@ -1,6 +1,7 @@
 import copy
 from ..bot_player import BotPlayer
 from ..abstracts.game_type import GameType
+from ..game_display import GameDisplay
 import os
 
 class BotVsBot(GameType):

@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 from ..game_state import GameState
 from ..board import Board
-from ..game_display import GameDisplay
 from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
+from ..game_display import GameDisplay
 
 class GameType(metaclass=ABCMeta):
 
@@ -32,4 +32,4 @@ class GameType(metaclass=ABCMeta):
          winner = self.gameState.check_win(self.board)[1][0]
          GameDisplay.log(f"Player with token {winner} won!")
         elif (self.gameState.finished(self.board)):
-         GameDisplay.log1("It's a tie!")
+         GameDisplay.log("It's a tie!")
