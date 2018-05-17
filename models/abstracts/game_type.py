@@ -12,6 +12,8 @@ class GameType(metaclass=ABCMeta):
         self.gameState = GameState()
         self.handlePlayerInput = HandlePlayerInput()
         self.handleTurns = HandleTurns()
+        self.playerOne = None
+        self.playerTwo = None
 
     def play(self):
         self.set_up()

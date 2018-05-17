@@ -29,32 +29,32 @@ class TestBotVsBot(unittest.TestCase):
         self.assertIsNotNone( self.game.set_up )
 
     def test_bot_vs_bot_has_bot_player_one(self):
-        self.assertIsNotNone( self.game.firstPlayer )
+        self.assertIsNotNone( self.game.playerOne )
 
     def test_bot_vs_bot_has_bot_player_two(self):
-        self.assertIsNotNone( self.game.secondPlayer )
+        self.assertIsNotNone( self.game.playerTwo )
 
     @patch('builtins.input', return_value='X')
     def test_bot_vs_bot_can_set_up_first_player_X(self, input):
         self.game.set_up()
-        self.assertEqual( self.game.firstPlayer.token, 'X' )
-        self.assertEqual( self.game.secondPlayer.token, 'O' )
+        self.assertEqual( self.game.playerOne.token, 'X' )
+        self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
     def test_bot_vs_bot_can_set_up_first_player_O(self, input):
         self.game.set_up()
-        self.assertEqual( self.game.firstPlayer.token, 'O' )
-        self.assertEqual( self.game.secondPlayer.token, 'X' )
+        self.assertEqual( self.game.playerOne.token, 'O' )
+        self.assertEqual( self.game.playerTwo.token, 'X' )
 
     @patch('builtins.input', return_value='X')
     def test_bot_vs_bot_can_set_up_second_player_O(self, input):
         self.game.set_up()
-        self.assertEqual( self.game.secondPlayer.token, 'O' )
+        self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
     def test_bot_vs_bot_can_set_up_second_player_X(self, input):
         self.game.set_up()
-        self.assertEqual( self.game.secondPlayer.token, 'X' )
+        self.assertEqual( self.game.playerTwo.token, 'X' )
 
 
 if __name__ == '__main__':
