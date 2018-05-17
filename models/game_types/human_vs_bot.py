@@ -32,6 +32,5 @@ class HumanVsBot(GameType):
 
   def set_tokens(self):
       while self.playerTwo.token == None:
-          player_token = self.handlePlayerInput.get_player_token()
-          self.playerOne.set_token(player_token)
-          self.playerTwo.auto_token(player_token)
+          self.playerOne.set_token(self.handleTurns.currentPlayerToken)
+          self.playerTwo.auto_token(self.playerOne.token)
