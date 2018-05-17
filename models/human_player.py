@@ -9,6 +9,3 @@ class HumanPlayer(Player):
         board.grid[spot] = self.token
       else:
         spot = None
-
-  def set_token(self, token):
-      self.token = token

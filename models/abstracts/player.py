@@ -8,9 +8,8 @@ class Player(metaclass=ABCMeta):
  def play(self, board, spot):
      raise NotImplementedError
 
- @abstractmethod
  def set_token(self, token):
-     raise NotImplementedError
+     self.token = token
 
  def auto_token(self, opponents_token):
      if(opponents_token == 'X'):
