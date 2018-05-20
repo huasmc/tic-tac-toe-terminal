@@ -84,12 +84,20 @@ class TestHumanVsBot(unittest.TestCase):
         self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_human_vs_bot_does_not_end_game(self, mock_stdout):
-        self.game.board.grid = ["X", "O", "X",
-                                "O", "4", "O",
+    def test_human_vs_bot_ends_game_when_token_O_wins(self, mock_stdout):
+        self.game.board.grid = ["O", "O", "X",
+                                "O", "X", "O",
                                 "O", "X", "O"]
         self.game.end_game()
-        self.assertEqual( mock_stdout.getvalue(), "" )
+        self.assertEqual( mock_stdout.getvalue(), "Player with token O won!\n" )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_human_vs_bot_ends_game_when_token_X_wins(self, mock_stdout):
+        self.game.board.grid = ["X", "O", "X",
+                                "O", "X", "O",
+                                "O", "O", "X"]
+        self.game.end_game()
+        self.assertEqual( mock_stdout.getvalue(), "Player with token X won!\n" )
 
 if __name__ == '__main__':
     unittest.main()
