@@ -9,6 +9,7 @@ import copy
 
 class GameType(metaclass=ABCMeta):
 
+    @abstractmethod
     def __init__(self):
         self.board = Board()
         self.gameState = GameState()

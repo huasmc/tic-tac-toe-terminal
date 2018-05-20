@@ -8,6 +8,7 @@ from tests.test_handle_player_input import TestHandlePlayerInput
 from tests.test_handle_turns import TestHandleTurns
 from tests.test_human_player import TestHumanPlayer
 from tests.test_player import TestPlayer
+from tests.test_game_type import TestGameType
 from tests.test_bot_vs_bot import TestBotVsBot
 from tests.test_human_vs_bot import TestHumanVsBot
 from tests.test_human_vs_human import TestHumanVsHuman
