@@ -32,7 +32,6 @@ class GameType(metaclass=ABCMeta):
                self.handle_play(self.playerTwo)
        self.end_game()
 
-
     def handle_play(self, player):
         if( isinstance(player, HumanPlayer) ):
              try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
@@ -44,7 +43,6 @@ class GameType(metaclass=ABCMeta):
              GameDisplay.log(f"Bot {self.playerOne.token} has played in spot {spot}")
         GameDisplay.show(self.board)
         self.handleTurns.change()
-
 
     def set_tokens(self):
       while self.playerTwo.token == None:
