@@ -44,14 +44,14 @@ class GameType(metaclass=ABCMeta):
         GameDisplay.show(self.board)
         self.handleTurns.change()
 
+    def set_up(self):
+        self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
+        self.set_tokens()
+
     def set_tokens(self):
       while self.playerTwo.token == None:
           self.playerOne.set_token(self.handleTurns.currentPlayerToken)
           self.playerTwo.auto_token(self.playerOne.token)
-
-    def set_up(self):
-        self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
-        self.set_tokens()
 
     def end_game(self):
         if (self.gameState.check_win(self.board)[0]):

@@ -9,3 +9,8 @@ class HumanVsBot(GameType):
     super().__init__()
     self.playerOne = HumanPlayer()
     self.playerTwo = BotPlayer()
+
+  def set_up(self):
+    self.handleTurns.set_currentPlayerToken(self.handlePlayerInput.get_player_token())
+    self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
+    self.set_tokens()

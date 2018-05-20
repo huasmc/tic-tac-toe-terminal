@@ -40,10 +40,10 @@ class TestHumanVsBot(unittest.TestCase):
     def test_human_vs_bot_inherits_handle_play_method(self):
         self.assertIsNotNone( self.game.handle_play )
 
-    def test_human_vs_bot_has_bot_player_one(self):
+    def test_human_vs_bot_has_player_one(self):
         self.assertIsNotNone( self.game.playerOne )
 
-    def test_human_vs_bot_has_bot_player_two(self):
+    def test_human_vs_bot_has_player_two(self):
         self.assertIsNotNone( self.game.playerTwo )
 
     def test_human_vs_bot_player_one_is_human_player_instance(self):
@@ -73,7 +73,6 @@ class TestHumanVsBot(unittest.TestCase):
     def test_human_vs_bot_can_set_up_second_player_X(self, input):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'X' )
-
 
 if __name__ == '__main__':
     unittest.main()
