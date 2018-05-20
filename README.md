@@ -37,8 +37,6 @@ python3.6 game.py
 
 ## Things to be added/improved
 
-- Research, 'handle_play' method in GameType class and Liskov principle.
-
 - Improve game types test suites.
 
 - Method prompt in Game Display class needs test improvement.
@@ -48,3 +46,13 @@ python3.6 game.py
 - More tests/test cases.
 
 - On first two moves AI's minimax algorithm runs slow due the depth being high, first computer move take around 3-4 seconds to load.
+
+- ~~Removed commented code.~~
+
+- ~~Extract display functionality into it's own class.~~
+
+- ~~Create parent class for game types.~~
+
+- ~~Remove duplicated code.~~
+
+- Add test coverage for game type classes.
