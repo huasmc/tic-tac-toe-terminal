@@ -1,5 +1,4 @@
 import unittest
-import io
 import sys
 from io import StringIO
 from unittest.mock import patch
