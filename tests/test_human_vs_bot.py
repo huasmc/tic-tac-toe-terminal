@@ -1,4 +1,5 @@
 import unittest
+from io import StringIO
 from models.game_types.human_vs_bot import HumanVsBot
 from models.abstracts.game_type import GameType
 from models.human_player import HumanPlayer
@@ -73,6 +74,14 @@ class TestHumanVsBot(unittest.TestCase):
     def test_human_vs_bot_can_set_up_second_player_X(self, input):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'X' )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_human_vs_bot_ends_game_with_tie(self, mock_stdout):
+        self.game.board.grid = ["X", "O", "X",
+                           "O", "X", "O",
+                           "O", "X", "O"]
+        self.game.end_game()
+        self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
 if __name__ == '__main__':
     unittest.main()
