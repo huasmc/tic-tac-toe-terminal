@@ -30,7 +30,7 @@ class GameType(metaclass=ABCMeta):
            if(self.handleTurns.currentPlayerToken == self.playerOne.token):
              self.handle_play(self.playerOne)
            else:
-               self.handle_play(self.playerTwo)
+             self.handle_play(self.playerTwo)
        self.end_game()
 
     def handle_play(self, player):
