@@ -52,26 +52,5 @@ class TestHandlePlayerInput(unittest.TestCase):
     def test_handle_game_type_input_3(self):
         self.assertEqual(self.handlePlayerInput.handle_game_type_input('3'), 2)
 
-
-    #
-    # @patch('builtins.input', return_value='Soiuoiug')
-    # def test_get_player_token_bad_input_letter(self, input):
-    #     self.assertEqual(self.handlePlayerInput.get_player_token(), 'Please choose either X or O.')
-    #
-    # @patch('builtins.input', return_value='45')
-    # def test_get_player_token_bad_input_number(self, input):
-    #     self.assertEqual(self.handlePlayerInput.get_player_token(), 'Please choose either X or O.')
-
 if __name__ == '__main__':
     unittest.main()
-
-
-
-    # #
-    # @patch('yourmodule.get_input', return_value='yes')
-    # def test_answer_yes(self, input):
-    #     self.assertEqual(answer(), 'you entered yes')
-
-    # @patch('yourmodule.get_input', return_value='no')
-    # def test_answer_no(self, input):
-    #     self.assertEqual(answer(), 'you entered no')
