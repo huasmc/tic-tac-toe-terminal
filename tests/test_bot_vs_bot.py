@@ -1,4 +1,5 @@
 import unittest
+from io import StringIO
 from models.game_types.bot_vs_bot import BotVsBot
 from models.abstracts.game_type import GameType
 from models.bot_player import BotPlayer
@@ -39,10 +40,10 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_inherits_handle_start_method(self):
         self.assertIsNotNone( self.game.start )
 
-    def test_bot_vs_bot_has_bot_player_one(self):
+    def test_bot_vs_bot_has_player_one(self):
         self.assertIsNotNone( self.game.playerOne )
 
-    def test_bot_vs_bot_has_bot_player_two(self):
+    def test_bot_vs_bot_has_player_two(self):
         self.assertIsNotNone( self.game.playerTwo )
 
     def test_bot_vs_bot_player_one_is_bot_instance(self):
@@ -72,6 +73,30 @@ class TestBotVsBot(unittest.TestCase):
     def test_bot_vs_bot_can_set_up_second_player_X(self, input):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'X' )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_bot_vs_bot_ends_game_with_tie(self, mock_stdout):
+        self.game.board.grid = ["X", "O", "X",
+                           "O", "X", "O",
+                           "O", "X", "O"]
+        self.game.end_game()
+        self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_bot_vs_bot_ends_game_when_token_O_wins(self, mock_stdout):
+        self.game.board.grid = ["O", "O", "X",
+                                "O", "X", "O",
+                                "O", "X", "O"]
+        self.game.end_game()
+        self.assertEqual( mock_stdout.getvalue(), "Player with token O won!\n" )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_bot_vs_bot_ends_game_when_token_X_wins(self, mock_stdout):
+        self.game.board.grid = ["X", "O", "X",
+                                "O", "X", "O",
+                                "O", "O", "X"]
+        self.game.end_game()
+        self.assertEqual( mock_stdout.getvalue(), "Player with token X won!\n" )
 
 
 if __name__ == '__main__':

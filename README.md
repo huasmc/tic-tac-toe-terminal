@@ -24,7 +24,7 @@ git clone https://github.com/HuascarMC/tictactoe-minimax
 ```
 - Go into the new directory:
 ```
-cd tictactoe-minimax
+cd tic-tac-toe-terminal
 ```
 - Run all the tests, ensure they all pass (they should):
 ```

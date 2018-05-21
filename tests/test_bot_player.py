@@ -1,7 +1,7 @@
 import unittest
+from io import StringIO
 from models.bot_player import BotPlayer
 from models.board import Board
-from io import StringIO
 from unittest.mock import patch
 
 class TestBotPlayer(unittest.TestCase):

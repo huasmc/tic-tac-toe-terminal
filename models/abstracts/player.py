@@ -1,7 +1,8 @@
 from abc import ABCMeta, abstractmethod
 
 class Player(metaclass=ABCMeta):
-
+    
+ @abstractmethod
  def __init__(self):
      self.token = None
 

@@ -7,14 +7,14 @@ class Game:
 
     def __init__(self):
         self.bot_vs_bot = BotVsBot()
-        self.huamn_vs_bot = HumanVsBot()
+        self.human_vs_bot = HumanVsBot()
         self.human_vs_human = HumanVsHuman()
         self.handlePlayerInput = HandlePlayerInput()
 
     def start(self):
         game_type = self.handlePlayerInput.get_game_type()
         if(game_type == 0):
-            self.huamn_vs_bot.play()
+            self.human_vs_bot.play()
             return
         elif(game_type == 1):
             self.human_vs_human.play()
