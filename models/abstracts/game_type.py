@@ -40,8 +40,8 @@ class GameType(metaclass=ABCMeta):
              player.play(self.board, spot)
              GameDisplay.log(f"Human {self.playerOne.token} has played in spot {spot}")
         else:
-             spot = self.playerTwo.play(self.board)
-             GameDisplay.log(f"Bot {self.playerOne.token} has played in spot {spot}")
+             spot = player.play(self.board)
+             GameDisplay.log(f"Bot {player.token} has played in spot {spot}")
         GameDisplay.show(self.board)
         self.handleTurns.change()
 
