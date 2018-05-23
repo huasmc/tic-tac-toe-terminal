@@ -105,6 +105,13 @@ class TestBotVsBot(unittest.TestCase):
         actual = self.game.board.grid[4]
         self.assertEqual(actual, 'O')
 
+    @patch('builtins.input', return_value='O')
+    def test_handle_play_player_two_first_turn(self, input):
+        self.game.set_up()
+        self.game.handle_play(self.game.playerTwo)
+        actual = self.game.board.grid[4]
+        self.assertEqual(actual, 'X')
+
 
 if __name__ == '__main__':
-    unittest.main(buffer=True)
+    unittest.main()

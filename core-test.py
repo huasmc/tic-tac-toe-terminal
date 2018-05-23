@@ -14,4 +14,4 @@ from tests.test_human_vs_bot import TestHumanVsBot
 from tests.test_human_vs_human import TestHumanVsHuman
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(buffer=True)

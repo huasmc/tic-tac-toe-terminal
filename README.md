@@ -55,4 +55,6 @@ python3.6 game.py
 
 - ~~Remove duplicated code.~~
 
+- ~~Fixed stdout coming from tests.~~
+
 - Add test coverage for game type classes.
