@@ -77,8 +77,8 @@ class TestBotVsBot(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_bot_vs_bot_ends_game_with_tie(self, mock_stdout):
         self.game.board.grid = ["X", "O", "X",
-                           "O", "X", "O",
-                           "O", "X", "O"]
+                                "O", "X", "O",
+                                "O", "X", "O"]
         self.game.end_game()
         self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
@@ -98,6 +98,13 @@ class TestBotVsBot(unittest.TestCase):
         self.game.end_game()
         self.assertEqual( mock_stdout.getvalue(), "Player with token X won!\n" )
 
+    @patch('builtins.input', return_value='O')
+    def test_handle_play_player_one_first_turn(self, input):
+        self.game.set_up()
+        self.game.handle_play(self.game.playerOne)
+        actual = self.game.board.grid[4]
+        self.assertEqual(actual, 'O')
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(buffer=True)
