@@ -112,6 +112,15 @@ class TestBotVsBot(unittest.TestCase):
         actual = self.game.board.grid[4]
         self.assertEqual(actual, 'X')
 
+    @patch('builtins.input', return_value='O')
+    def test_start(self, input):
+        self.game.set_up()
+        self.game.board.grid = ["0", "O", "X",
+                                "O", "X", "O",
+                                "O", "O", "X"]
+        self.game.start()
+        self.assertEqual( self.game.board.grid[0], 'O')
+
 
 if __name__ == '__main__':
     unittest.main()
