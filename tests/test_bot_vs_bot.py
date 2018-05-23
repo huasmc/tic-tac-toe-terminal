@@ -99,18 +99,18 @@ class TestBotVsBot(unittest.TestCase):
         self.assertEqual( mock_stdout.getvalue(), "Player with token X won!\n" )
 
     @patch('builtins.input', return_value='O')
-    def test_handle_play_player_one_first_turn(self, mock_input):
+    def test_handle_play_player_one_first_turn_with_token_O(self, mock_input):
         self.game.set_up()
         self.game.handle_play(self.game.playerOne)
         actual = self.game.board.grid[4]
-        self.assertEqual(actual, 'O')
+        self.assertEqual( actual, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_handle_play_player_two_first_turn(self, mock_input):
+    def test_handle_play_player_two_first_turn_with_token_X(self, mock_input):
         self.game.set_up()
         self.game.handle_play(self.game.playerTwo)
         actual = self.game.board.grid[4]
-        self.assertEqual(actual, 'X')
+        self.assertEqual( actual, 'X' )
 
     @patch('builtins.input', return_value='O')
     def test_start(self, mock_input):
@@ -119,7 +119,7 @@ class TestBotVsBot(unittest.TestCase):
                                 "O", "X", "O",
                                 "O", "O", "X"]
         self.game.start()
-        self.assertEqual( self.game.board.grid[0], 'O')
+        self.assertEqual( self.game.board.grid[0], 'O' )
 
     @patch('builtins.input', return_value='O')
     def test_play(self, mock_input):
@@ -128,7 +128,7 @@ class TestBotVsBot(unittest.TestCase):
                                 "6", "7", "X"]
         self.game.play()
         actual = self.game.gameState.finished(self.game.board)
-        self.assertEqual( actual, True)
+        self.assertEqual( actual, True )
 
 
 if __name__ == '__main__':
