@@ -31,16 +31,15 @@ class TestGameDisplay(unittest.TestCase):
         self.assertEqual( mock_stdout.getvalue(), 'G\na\nm\ne\n' )
 
     @patch('builtins.input', return_value='0')
-    def test_prompt_input(self, input):
+    def test_prompt_input(self, mock_input):
         self.assertEqual( self.gameDisplay.prompt('Choose 0: '), '0' )
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_prompt_output(self, mock_stdout):
+    @patch('builtins.input', return_value='0')
+    def test_prompt_output(self, mock_input, mock_stdout):
         keyboard = Controller()
-        keyboard.press(Key.enter)
         self.gameDisplay.prompt('Choose 0: ')
-        keyboard.release(Key.enter)
-        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: ')
+        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: \n')
 
 if __name__ == '__main__':
     unittest.main()

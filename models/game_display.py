@@ -14,7 +14,8 @@ class GameDisplay:
 
     @staticmethod
     def prompt(text):
-        input_value = input(text)
+        print(text)
+        input_value = input()
         return input_value
 
     @staticmethod
