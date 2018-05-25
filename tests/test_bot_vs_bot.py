@@ -10,72 +10,72 @@ class TestBotVsBot(unittest.TestCase):
     def setUp(self):
         self.game = BotVsBot()
 
-    def test_bot_vs_bot_is_game_type_subclass(self):
+    def test_game_type_subclass(self):
         self.assertTrue( issubclass(BotVsBot, GameType) )
 
-    def test_bot_vs_bot_inherits_board(self):
+    def test_inherits_board(self):
         self.assertIsNotNone( self.game.board )
 
-    def test_bot_vs_bot_inherits_game_state(self):
+    def test_inherits_game_state(self):
         self.assertIsNotNone( self.game.gameState )
 
-    def test_bot_vs_bot_inherits_handle_player_input(self):
+    def test_inherits_handle_player_input(self):
         self.assertIsNotNone( self.game.handlePlayerInput )
 
-    def test_bot_vs_bot_inherits_handle_turns(self):
+    def test_inherits_handle_turns(self):
         self.assertIsNotNone( self.game.handleTurns )
 
-    def test_bot_vs_bot_inherits_play_method(self):
+    def test_inherits_play_method(self):
         self.assertIsNotNone( self.game.play )
 
-    def test_bot_vs_bot_inherits_end_game_method(self):
+    def test_inherits_end_game_method(self):
         self.assertIsNotNone( self.game.end_game )
 
-    def test_bot_vs_bot_inherits_set_up_method(self):
+    def test_inherits_set_up_method(self):
         self.assertIsNotNone( self.game.set_up )
 
-    def test_bot_vs_bot_inherits_handle_play_method(self):
+    def test_inherits_handle_play_method(self):
         self.assertIsNotNone( self.game.handle_play )
 
-    def test_bot_vs_bot_inherits_handle_start_method(self):
+    def test_inherits_handle_start_method(self):
         self.assertIsNotNone( self.game.start )
 
-    def test_bot_vs_bot_has_player_one(self):
+    def test_has_player_one(self):
         self.assertIsNotNone( self.game.playerOne )
 
-    def test_bot_vs_bot_has_player_two(self):
+    def test_has_player_two(self):
         self.assertIsNotNone( self.game.playerTwo )
 
-    def test_bot_vs_bot_player_one_is_bot_instance(self):
+    def test_player_one_is_bot_instance(self):
         self.assertTrue( isinstance(self.game.playerOne, BotPlayer ) )
 
-    def test_bot_vs_bot_player_two_is_bot_instance(self):
+    def test_player_two_is_bot_instance(self):
         self.assertTrue( isinstance(self.game.playerTwo, BotPlayer ) )
 
     @patch('builtins.input', return_value='X')
-    def test_bot_vs_bot_can_set_up_first_player_X(self, mock_input):
+    def test_can_set_up_first_player_X(self, mock_input):
         self.game.set_up()
         self.assertEqual( self.game.playerOne.token, 'X' )
         self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_bot_vs_bot_can_set_up_first_player_O(self, mock_input):
+    def test_can_set_up_first_player_O(self, mock_input):
         self.game.set_up()
         self.assertEqual( self.game.playerOne.token, 'O' )
         self.assertEqual( self.game.playerTwo.token, 'X' )
 
     @patch('builtins.input', return_value='X')
-    def test_bot_vs_bot_can_set_up_second_player_O(self, mock_input):
+    def test_can_set_up_second_player_O(self, mock_input):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_bot_vs_bot_can_set_up_second_player_X(self, mock_input):
+    def test_can_set_up_second_player_X(self, mock_input):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'X' )
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_bot_vs_bot_ends_game_with_tie(self, mock_stdout):
+    def test_ends_game_with_tie(self, mock_stdout):
         self.game.board.grid = ["X", "O", "X",
                                 "O", "X", "O",
                                 "O", "X", "O"]
@@ -83,7 +83,7 @@ class TestBotVsBot(unittest.TestCase):
         self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_bot_vs_bot_ends_game_when_token_O_wins(self, mock_stdout):
+    def test_ends_game_when_token_O_wins(self, mock_stdout):
         self.game.board.grid = ["O", "O", "X",
                                 "O", "X", "O",
                                 "O", "X", "O"]
@@ -91,7 +91,7 @@ class TestBotVsBot(unittest.TestCase):
         self.assertEqual( mock_stdout.getvalue(), "Player with token O won!\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_bot_vs_bot_ends_game_when_token_X_wins(self, mock_stdout):
+    def test_ends_game_when_token_X_wins(self, mock_stdout):
         self.game.board.grid = ["X", "O", "X",
                                 "O", "X", "O",
                                 "O", "O", "X"]
