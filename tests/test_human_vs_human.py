@@ -109,15 +109,16 @@ class TestHumanVsHuman(unittest.TestCase):
         actual = self.game.board.grid[4]
         self.assertEqual( actual, 'X' )
 
-    # def test_start(self):
-    #     self.game.playerOne.set_token('O')
-    #     self.game.playerTwo.auto_token('O')
-    #     self.game.handleTurns.set_currentPlayerToken('X')
-    #     self.game.board.grid = ["0", "1", "X",
-    #                             "O", "X", "O",
-    #                             "O", "O", "X"]
-    #     self.game.start()
-    #     self.assertEqual( self.game.board.grid[0], 'X' )
+    @patch('builtins.input', return_value='0')
+    def test_start(self, mock_position):
+        self.game.playerOne.set_token('O')
+        self.game.playerTwo.auto_token('O')
+        self.game.handleTurns.set_currentPlayerToken('X')
+        self.game.board.grid = ["0", "X", "X",
+                                "O", "X", "O",
+                                "O", "O", "X"]
+        self.game.start()
+        self.assertEqual( self.game.board.grid[0], 'X' )
     #
     # @patch('builtins.input', return_value='X')
     # @patch('builtins.input', return_value='0')
