@@ -99,14 +99,6 @@ class TestHumanVsBot(unittest.TestCase):
         self.game.end_game()
         self.assertEqual( mock_stdout.getvalue(), "Player with token X won!\n" )
 
-    # @patch('builtins.input', return_value='O')
-    # @patch('builtins.input', return_value='4')
-    # def test_handle_play_player_one_first_turn_with_token_O(self, mock_input, mock_input_two):
-    #     self.game.set_up()
-    #     self.game.handle_play(self.game.playerOne)
-    #     actual = self.game.board.grid[4]
-    #     self.assertEqual( actual, 'O' )
-
     @patch('builtins.input', return_value='O')
     @patch('builtins.input', return_value='4')
     def test_handle_play_player_two_first_turn_with_token_X(self, mock_input, m):
@@ -114,16 +106,17 @@ class TestHumanVsBot(unittest.TestCase):
         self.game.handle_play(self.game.playerTwo)
         actual = self.game.board.grid[4]
         self.assertEqual( actual, 'X' )
-    #
-    # @patch('builtins.input', return_value='O')
-    # def test_start(self, mock_input):
-    #     self.game.set_up()
-    #     self.game.board.grid = ["0", "O", "X",
-    #                             "O", "X", "O",
-    #                             "O", "O", "X"]
-    #     self.game.start()
-    #     self.assertEqual( self.game.board.grid[0], 'O' )
-    #
+
+    def test_start(self):
+        self.game.playerOne.set_token('O')
+        self.game.playerTwo.auto_token('O')
+        self.game.handleTurns.set_currentPlayerToken('X')
+        self.game.board.grid = ["0", "1", "X",
+                                "O", "X", "O",
+                                "O", "O", "X"]
+        self.game.start()
+        self.assertEqual( self.game.board.grid[0], 'X' )
+
     # @patch('builtins.input', return_value='O')
     # def test_play(self, mock_input):
     #     self.game.board.grid = ["0", "1", "2",
