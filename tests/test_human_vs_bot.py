@@ -54,24 +54,24 @@ class TestHumanVsBot(unittest.TestCase):
         self.assertTrue( isinstance( self.game.playerTwo, BotPlayer) )
 
     @patch('builtins.input', return_value='X')
-    def test_can_set_up_first_player_X(self, input):
+    def test_can_set_up_first_player_X(self, mock_token):
         self.game.set_up()
         self.assertEqual( self.game.playerOne.token, 'X' )
         self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_can_set_up_first_player_O(self, input):
+    def test_can_set_up_first_player_O(self, mock_token):
         self.game.set_up()
         self.assertEqual( self.game.playerOne.token, 'O' )
         self.assertEqual( self.game.playerTwo.token, 'X' )
 
     @patch('builtins.input', return_value='X')
-    def test_can_set_up_second_player_O(self, input):
+    def test_can_set_up_second_player_O(self, mock_token):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'O' )
 
     @patch('builtins.input', return_value='O')
-    def test_can_set_up_second_player_X(self, input):
+    def test_can_set_up_second_player_X(self, mock_token):
         self.game.set_up()
         self.assertEqual( self.game.playerTwo.token, 'X' )
 
@@ -101,7 +101,7 @@ class TestHumanVsBot(unittest.TestCase):
 
     @patch('builtins.input', return_value='O')
     @patch('builtins.input', return_value='4')
-    def test_handle_play_player_two_first_turn_with_token_X(self, mock_input, m):
+    def test_handle_play_player_two_first_turn_with_token_X(self, mock_token, mock_position):
         self.game.set_up()
         self.game.handle_play(self.game.playerTwo)
         actual = self.game.board.grid[4]
@@ -117,14 +117,17 @@ class TestHumanVsBot(unittest.TestCase):
         self.game.start()
         self.assertEqual( self.game.board.grid[0], 'X' )
 
-    # @patch('builtins.input', return_value='O')
-    # def test_play(self, mock_input):
-    #     self.game.board.grid = ["0", "1", "2",
-    #                             "3", "4", "5",
-    #                             "6", "7", "X"]
-    #     self.game.play()
-    #     actual = self.game.gameState.finished(self.game.board)
-    #     self.assertEqual( actual, True )
+    @patch('builtins.input', return_value='X')
+    @patch('builtins.input', return_value='0')
+    def test_play(self, mock_token, mock_position):
+        self.game.playerOne.set_token('O')
+        self.game.playerTwo.auto_token('O')
+        self.game.board.grid = ["0", "1", "X",
+                                "O", "X", "5",
+                                "O", "7", "X"]
+        self.game.play()
+        actual = self.game.gameState.finished(self.game.board)
+        self.assertEqual( actual, True )
 
 
 if __name__ == '__main__':
