@@ -21,3 +21,7 @@ class GameDisplay:
     @staticmethod
     def log_as_list(array):
         print(*array, sep='\n')
+
+    @staticmethod
+    def game_over():
+        print('Game Over')

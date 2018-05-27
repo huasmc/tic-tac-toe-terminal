@@ -44,7 +44,7 @@ class TestGameDisplay(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_game_over(self, mock_stdout):
         self.gameDisplay.game_over()
-        self.assertEqual( mock_stdout.getvalue(), 'Game Over \n' )
+        self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )
 
 if __name__ == '__main__':
     unittest.main()
