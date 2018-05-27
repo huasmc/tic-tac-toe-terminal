@@ -19,5 +19,5 @@ class GameDisplay:
         return input_value
 
     @staticmethod
-    def logAsList(array):
+    def log_as_list(array):
         print(*array, sep='\n')

@@ -33,7 +33,7 @@ class HandlePlayerInput:
 
     def get_game_type(self):
         game_types = ["1. Human Vs Bot", "2. Human Vs Human", "3. Bot Vs Bot"]
-        GameDisplay.logAsList(game_types)
+        GameDisplay.log_as_list(game_types)
         game_type = GameDisplay.prompt('Given the options above please choose the number representing your preferred game type: ')
         game_type_index = self.handle_game_type_input(game_type)
         if game_type_index == None or not game_types[game_type_index] in game_types:

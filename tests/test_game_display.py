@@ -27,7 +27,7 @@ class TestGameDisplay(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_gameDisplay_log_as_list(self, mock_stdout):
-        self.gameDisplay.logAsList('Game')
+        self.gameDisplay.log_as_list('Game')
         self.assertEqual( mock_stdout.getvalue(), 'G\na\nm\ne\n' )
 
     @patch('builtins.input', return_value='0')
@@ -39,7 +39,12 @@ class TestGameDisplay(unittest.TestCase):
     def test_prompt_output(self, mock_input, mock_stdout):
         keyboard = Controller()
         self.gameDisplay.prompt('Choose 0: ')
-        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: \n')
+        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: \n' )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_game_over(self, mock_stdout):
+        self.gameDisplay.game_over()
+        self.assertEqual( mock_stdout.getvalue(), 'Game Over \n' )
 
 if __name__ == '__main__':
     unittest.main()
