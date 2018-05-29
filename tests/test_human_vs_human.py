@@ -120,5 +120,15 @@ class TestHumanVsHuman(unittest.TestCase):
         self.game.start()
         self.assertEqual( self.game.board.grid[0], 'X' )
 
+    def test_play(self):
+        user_input = ['X', '0']
+        self.game.board.grid = ["0", "1", "X",
+                                "O", "X", "5",
+                                "O", "7", "X"]
+        with patch('builtins.input', side_effect=user_input):
+            self.game.play()
+            actual = self.game.gameState.finished(self.game.board)
+            self.assertEqual( actual, True )
+
 if __name__ == '__main__':
     unittest.main()
