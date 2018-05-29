@@ -66,5 +66,12 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.winner('O')
         self.assertEqual( mock_stdout.getvalue(), 'Player with token O won!\n' )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_tie(self, mock_stdout):
+        self.gameDisplay.tie()
+        self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
+
+
+
 if __name__ == '__main__':
     unittest.main()
