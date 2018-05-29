@@ -25,3 +25,7 @@ class GameDisplay:
     @staticmethod
     def game_over():
         print('Game Over')
+
+    @staticmethod
+    def chosen_spot(token, spot):
+        print(f"Player with token {token} has played in spot {spot}")
