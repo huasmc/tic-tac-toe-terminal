@@ -21,27 +21,6 @@ class TestGameDisplay(unittest.TestCase):
                  self.board.grid[6], self.board.grid[7], self.board.grid[8]))
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test_gameDisplay_log_game_over(self, mock_stdout):
-        self.gameDisplay.log('Game Over')
-        self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )
-
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_gameDisplay_log_as_list(self, mock_stdout):
-        self.gameDisplay.log_as_list('Game')
-        self.assertEqual( mock_stdout.getvalue(), 'G\na\nm\ne\n' )
-
-    @patch('builtins.input', return_value='0')
-    def test_prompt_input(self, mock_input):
-        self.assertEqual( self.gameDisplay.prompt('Choose 0: '), '0' )
-
-    @patch('sys.stdout', new_callable=StringIO)
-    @patch('builtins.input', return_value='0')
-    def test_prompt_output(self, mock_input, mock_stdout):
-        keyboard = Controller()
-        self.gameDisplay.prompt('Choose 0: ')
-        self.assertEqual( mock_stdout.getvalue(), 'Choose 0: \n' )
-
-    @patch('sys.stdout', new_callable=StringIO)
     def test_game_over(self, mock_stdout):
         self.gameDisplay.game_over()
         self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )

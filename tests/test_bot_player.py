@@ -22,8 +22,7 @@ class TestBotPlayer(unittest.TestCase):
 
         self.assertIsNotNone( self.botPlayer.AI )
 
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_botPlayer_play_first_middle(self, mock_stdout):
+    def test_botPlayer_play_first_middle(self):
         self.botPlayer.auto_token('X')
         self.botPlayer.play(self.board)
         self.assertEqual( self.board.grid[4], self.botPlayer.token )

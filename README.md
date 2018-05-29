@@ -37,8 +37,6 @@ python3.6 game.py
 
 ## Things to be added/improved
 
-- ~Method prompt in Game Display class needs test improvement~.
-
 - UI, currently runs in terminal.
 
 - More tests/test cases.
@@ -55,4 +53,4 @@ python3.6 game.py
 
 - ~~Fixed stdout coming from tests.~~
 
-- Add test coverage for game type classes.
+- ~Add test coverage for game type classes~.

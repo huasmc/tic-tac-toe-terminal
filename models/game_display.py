@@ -13,16 +13,6 @@ class GameDisplay:
         print(text)
 
     @staticmethod
-    def prompt(text):
-        print(text)
-        input_value = input()
-        return input_value
-
-    @staticmethod
-    def log_as_list(array):
-        print(*array, sep='\n')
-
-    @staticmethod
     def game_over():
         print('Game Over')
 
