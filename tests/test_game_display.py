@@ -71,6 +71,11 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.tie()
         self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_game_types(self, mock_stdout):
+        self.gameDisplay.game_types()
+        self.assertEqual( mock_stdout.getvalue(), "1. Human Vs Bot\n2. Human Vs Human\n3. Bot Vs Bot\n" )
+
 
 
 if __name__ == '__main__':
