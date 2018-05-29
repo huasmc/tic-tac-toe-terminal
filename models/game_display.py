@@ -29,3 +29,7 @@ class GameDisplay:
     @staticmethod
     def chosen_spot(token, spot):
         print(f"Player with token {token} has played in spot {spot}")
+
+    @staticmethod
+    def winner(token):
+        print(f"Player with token {token} won!")

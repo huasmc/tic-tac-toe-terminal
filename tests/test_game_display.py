@@ -59,12 +59,12 @@ class TestGameDisplay(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_winner_token_X(self, mock_stdout):
         self.gameDisplay.winner('X')
-        self.assertEqual( mock_stdout.getvalue(), 'Player with token X won\n' )
+        self.assertEqual( mock_stdout.getvalue(), 'Player with token X won!\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_winner_token_O(self, mock_stdout):
         self.gameDisplay.winner('O')
-        self.assertEqual( mock_stdout.getvalue(), 'Player with token O won\n' )
+        self.assertEqual( mock_stdout.getvalue(), 'Player with token O won!\n' )
 
 if __name__ == '__main__':
     unittest.main()
