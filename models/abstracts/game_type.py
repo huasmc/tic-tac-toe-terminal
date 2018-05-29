@@ -38,10 +38,10 @@ class GameType(metaclass=ABCMeta):
              try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
              spot = copy.deepcopy(try_spot)
              player.play(self.board, spot)
-             GameDisplay.log(f"Human {self.playerOne.token} has played in spot {spot}")
+             GameDisplay.chosen_spot(player.token, spot)
         else:
              spot = player.play(self.board)
-             GameDisplay.log(f"Bot {player.token} has played in spot {spot}")
+             GameDisplay.chosen_spot(player.token, spot)
         GameDisplay.show(self.board)
         self.handleTurns.change()
 
@@ -56,7 +56,7 @@ class GameType(metaclass=ABCMeta):
 
     def end_game(self):
         if (self.gameState.check_win(self.board)[0]):
-         winner = self.gameState.check_win(self.board)[1][0]
-         GameDisplay.log(f"Player with token {winner} won!")
+         winnerToken = self.gameState.check_win(self.board)[1][0]
+         GameDisplay.winner(winnerToken)
         elif (self.gameState.finished(self.board)):
-         GameDisplay.log("It's a tie!")
+         GameDisplay.tie()
