@@ -46,5 +46,10 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.game_over()
         self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_chosen_spot_player_one(self, mock_stdout):
+        self.gameDisplay.chosen_spot('X', 4)
+        self.assertEqual( mock_stdout.getvalue(), 'Player with token X has played in spot 4\n' )
+
 if __name__ == '__main__':
     unittest.main()

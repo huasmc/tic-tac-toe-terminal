@@ -23,7 +23,7 @@ class GameType(metaclass=ABCMeta):
         GameDisplay.show(self.board)
         self.start()
         GameDisplay.show(self.board)
-        GameDisplay.log('Game Over')
+        GameDisplay.game_over()
 
     def start(self):
        while not self.gameState.finished(self.board):
