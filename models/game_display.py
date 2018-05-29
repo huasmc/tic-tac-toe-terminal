@@ -47,3 +47,7 @@ class GameDisplay:
     @staticmethod
     def prompt_spot(available_spots):
         print("Choose one of these spots [%s]:" % ", ".join(available_spots))
+
+    @staticmethod
+    def prompt_token():
+        print('Choose your token! It can be either X or O: ')
