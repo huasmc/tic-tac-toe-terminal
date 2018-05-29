@@ -39,11 +39,13 @@ python3.6 game.py
 
 - UI, currently runs in terminal.
 
-- More tests/test cases.
+- Add more tests/test cases.
 
 - On first two moves AI's minimax algorithm runs slow due the depth being high, first computer move takes 3-4 seconds to load.
 
-- ~~Removed commented code.~~
+- GameDisplay class has one method for each 'string' to be displayed in terminal. These methods could be replaced with one method that takes any 'string' as argument but it would make an GUI implementation more difficult.
+
+- ~~Remove commented code.~~
 
 - ~~Extract display functionality into it's own class.~~
 
@@ -51,6 +53,6 @@ python3.6 game.py
 
 - ~~Remove duplicated code.~~
 
-- ~~Fixed stdout coming from tests.~~
+- ~~Fix stdout coming from tests.~~
 
-- ~Add test coverage for game type classes~.
+- ~Add test coverage for game type classes.~.
