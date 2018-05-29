@@ -78,8 +78,10 @@ class TestGameDisplay(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_prompt_spot(self, mock_stdout):
-        self.gameDisplay.prompt_spot()
-        self.assertEqual( mock_stdout.getvalue(), "Choose spot:\n" )
+        available_spots = ['4', '5']
+        self.gameDisplay.prompt_spot(available_spots)
+        self.assertEqual( mock_stdout.getvalue(), "Choose one of these spots [4, 5]:\n" )
+
 
 if __name__ == '__main__':
     unittest.main()

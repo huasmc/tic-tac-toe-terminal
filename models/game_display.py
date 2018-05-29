@@ -45,5 +45,5 @@ class GameDisplay:
         return game_types
 
     @staticmethod
-    def prompt_spot():
-        print('Choose spot:')
+    def prompt_spot(available_spots):
+        print("Choose one of these spots [%s]:" % ", ".join(available_spots))
