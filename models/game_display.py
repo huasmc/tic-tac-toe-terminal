@@ -50,4 +50,4 @@ class GameDisplay:
 
     @staticmethod
     def prompt_token():
-        print('Choose your token! It can be either X or O: ')
+        print('Choose your token! It can be either X or O:')
