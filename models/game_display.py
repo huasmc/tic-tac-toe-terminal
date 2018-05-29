@@ -51,3 +51,7 @@ class GameDisplay:
     @staticmethod
     def prompt_token():
         print('Choose your token! It can be either X or O:')
+
+    @staticmethod
+    def prompt_first_player():
+        print('Who plays first, X or O?')
