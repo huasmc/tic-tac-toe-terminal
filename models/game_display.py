@@ -42,3 +42,4 @@ class GameDisplay:
     def game_types():
         game_types = ["1. Human Vs Bot", "2. Human Vs Human", "3. Bot Vs Bot"]
         print(*game_types, sep='\n')
+        return game_types

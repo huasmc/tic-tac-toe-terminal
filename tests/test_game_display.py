@@ -76,7 +76,10 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.game_types()
         self.assertEqual( mock_stdout.getvalue(), "1. Human Vs Bot\n2. Human Vs Human\n3. Bot Vs Bot\n" )
 
-
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_prompt_spot(self, mock_stdout):
+        self.gameDisplay.prompt_spot()
+        self.assertEqual( mock_stdout.getvalue(), "Choose spot: \n" )
 
 if __name__ == '__main__':
     unittest.main()
