@@ -56,5 +56,15 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.chosen_spot('O', 4)
         self.assertEqual( mock_stdout.getvalue(), 'Player with token O has played in spot 4\n' )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_winner_token_X(self, mock_stdout):
+        self.gameDisplay.winner('X')
+        self.assertEqual( mock_stdout.getvalue(), 'Player with token X won\n' )
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_winner_token_O(self, mock_stdout):
+        self.gameDisplay.winner('O')
+        self.assertEqual( mock_stdout.getvalue(), 'Player with token O won\n' )
+
 if __name__ == '__main__':
     unittest.main()
