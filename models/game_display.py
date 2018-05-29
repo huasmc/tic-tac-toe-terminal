@@ -33,3 +33,7 @@ class GameDisplay:
     @staticmethod
     def winner(token):
         print(f"Player with token {token} won!")
+
+    @staticmethod
+    def tie():
+        print("It's a tie!")
