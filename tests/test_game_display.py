@@ -87,6 +87,10 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.prompt_token()
         self.assertEqual( mock_stdout.getvalue(), "Choose your token! It can be either X or O:\n" )
 
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_prompt_first_player(self, mock_stdout):
+        self.gameDisplay.prompt_first_player()
+        self.assertEqual( mock_stdout.getvalue(), "Who plays first, X or O?\n" )
 
 
 if __name__ == '__main__':
