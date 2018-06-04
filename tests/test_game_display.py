@@ -76,7 +76,7 @@ class TestGameDisplay(unittest.TestCase):
 
     @patch('builtins.input', return_value='X')
     def test_get_player_token_X(self, input):
-        self.assertEqual( GameDisplay.get_player_token(), 'X')
+        self.assertEqual( GameDisplay.get_player_token(GameDisplay), 'X')
 
 
 if __name__ == '__main__':

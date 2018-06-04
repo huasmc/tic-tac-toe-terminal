@@ -54,3 +54,14 @@ class GameDisplay:
             return self.get_player_spot(available_spots)
         else:
             return int(spot)
+
+    @staticmethod
+    def get_player_token(self):
+        GameDisplay.prompt_token()
+        token = input()
+        if (token == 'X'):
+            return token
+        elif (token == 'O'):
+            return token
+        else:
+            return self.get_player_token()    
