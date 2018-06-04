@@ -9,12 +9,11 @@ from pynput.keyboard import Key, Controller
 class TestGameDisplay(unittest.TestCase):
 
     def setUp(self):
-        self.gameDisplay = GameDisplay();
         self.board = Board();
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_gameDisplay_show_board(self, mock_stdout):
-        self.gameDisplay.show(self.board)
+        GameDisplay.show(self.board)
         self.assertEqual( mock_stdout.getvalue(), " %s | %s | %s \n===+===+===\n %s | %s | %s \n===+===+===\n %s | %s | %s \n\n" % \
             (self.board.grid[0], self.board.grid[1], self.board.grid[2],
                  self.board.grid[3], self.board.grid[4], self.board.grid[5],
@@ -22,58 +21,58 @@ class TestGameDisplay(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_game_over(self, mock_stdout):
-        self.gameDisplay.game_over()
+        GameDisplay.game_over()
         self.assertEqual( mock_stdout.getvalue(), 'Game Over\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_chosen_spot_token_X(self, mock_stdout):
-        self.gameDisplay.chosen_spot('X', 4)
+        GameDisplay.chosen_spot('X', 4)
         self.assertEqual( mock_stdout.getvalue(), 'Player with token X has played in spot 4\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_chosen_spot_token_O(self, mock_stdout):
-        self.gameDisplay.chosen_spot('O', 4)
+        GameDisplay.chosen_spot('O', 4)
         self.assertEqual( mock_stdout.getvalue(), 'Player with token O has played in spot 4\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_winner_token_X(self, mock_stdout):
-        self.gameDisplay.winner('X')
+        GameDisplay.winner('X')
         self.assertEqual( mock_stdout.getvalue(), 'Player with token X won!\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_winner_token_O(self, mock_stdout):
-        self.gameDisplay.winner('O')
+        GameDisplay.winner('O')
         self.assertEqual( mock_stdout.getvalue(), 'Player with token O won!\n' )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_tie(self, mock_stdout):
-        self.gameDisplay.tie()
+        GameDisplay.tie()
         self.assertEqual( mock_stdout.getvalue(), "It's a tie!\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_game_types(self, mock_stdout):
-        self.gameDisplay.game_types()
+        GameDisplay.game_types()
         self.assertEqual( mock_stdout.getvalue(), "1. Human Vs Bot\n2. Human Vs Human\n3. Bot Vs Bot\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_prompt_spot(self, mock_stdout):
         available_spots = ['4', '5']
-        self.gameDisplay.prompt_spot(available_spots)
+        GameDisplay.prompt_spot(available_spots)
         self.assertEqual( mock_stdout.getvalue(), "Choose one of these spots [4, 5]:\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_prompt_token(self, mock_stdout):
-        self.gameDisplay.prompt_token()
+        GameDisplay.prompt_token()
         self.assertEqual( mock_stdout.getvalue(), "Choose your token! It can be either X or O:\n" )
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_prompt_first_player(self, mock_stdout):
-        self.gameDisplay.prompt_first_player()
+        GameDisplay.prompt_first_player()
         self.assertEqual( mock_stdout.getvalue(), "Who plays first, X or O?\n" )
 
     @patch('builtins.input', return_value='0')
     def test_get_player_spot(self, input):
-        self.assertEqual(self.gameDisplay.get_player_spot(['0', '1']), 0)
+        self.assertEqual( GameDisplay.get_player_spot(GameDisplay, ['0', '1']), 0 )
 
 
 if __name__ == '__main__':

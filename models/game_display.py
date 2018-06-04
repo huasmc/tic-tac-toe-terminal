@@ -45,3 +45,12 @@ class GameDisplay:
     @staticmethod
     def prompt_first_player():
         print('Who plays first, X or O?')
+
+    @staticmethod
+    def get_player_spot(self, available_spots):
+        self.prompt_spot(available_spots)
+        spot = input()
+        if not spot in available_spots:
+            return self.get_player_spot(available_spots)
+        else:
+            return int(spot)
