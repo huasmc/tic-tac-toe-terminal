@@ -93,17 +93,17 @@ class TestGameDisplay(unittest.TestCase):
     @patch('builtins.input', return_value='1')
     @patch('sys.stdout', new_callable=StringIO)
     def test_get_game_type_human_vs_bot(self, input, mock_stdout):
-        self.assertEqual( GameDisplay.get_game_type(), 0 )
+        self.assertEqual( GameDisplay.get_game_type(GameDisplay), 0 )
 
     @patch('builtins.input', return_value='2')
     @patch('sys.stdout', new_callable=StringIO)
     def test_get_game_type_human_vs_human(self, input, mock_stdout):
-        self.assertEqual( GameDisplay.get_game_type(), 1 )
+        self.assertEqual( GameDisplay.get_game_type(GameDisplay), 1 )
 
     @patch('builtins.input', return_value='3')
     @patch('sys.stdout', new_callable=StringIO)
     def test_get_game_type_human_vs_bot(self, input, mock_stdout):
-        self.assertEqual( GameDisplay.get_game_type(), 2 )
+        self.assertEqual( GameDisplay.get_game_type(GameDisplay), 2 )
 
 
 if __name__ == '__main__':
