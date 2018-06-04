@@ -1,7 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from ..game_state import GameState
 from ..board import Board
-from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 from ..game_display import GameDisplay
 from ..human_player import HumanPlayer
@@ -13,7 +12,6 @@ class GameType(metaclass=ABCMeta):
     def __init__(self):
         self.board = Board()
         self.gameState = GameState()
-        self.handlePlayerInput = HandlePlayerInput()
         self.handleTurns = HandleTurns()
         self.playerOne = None
         self.playerTwo = None
@@ -23,7 +21,7 @@ class GameType(metaclass=ABCMeta):
         GameDisplay.show(self.board)
         self.start()
         GameDisplay.show(self.board)
-        GameDisplay.log('Game Over')
+        GameDisplay.game_over()
 
     def start(self):
        while not self.gameState.finished(self.board):
@@ -35,18 +33,18 @@ class GameType(metaclass=ABCMeta):
 
     def handle_play(self, player):
         if( isinstance(player, HumanPlayer) ):
-             try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
+             try_spot = GameDisplay.get_player_spot(GameDisplay, self.board.get_available_spots())
              spot = copy.deepcopy(try_spot)
              player.play(self.board, spot)
-             GameDisplay.log(f"Human {self.playerOne.token} has played in spot {spot}")
+             GameDisplay.chosen_spot(player.token, spot)
         else:
-             spot = self.playerTwo.play(self.board)
-             GameDisplay.log(f"Bot {self.playerOne.token} has played in spot {spot}")
+             spot = player.play(self.board)
+             GameDisplay.chosen_spot(player.token, spot)
         GameDisplay.show(self.board)
         self.handleTurns.change()
 
     def set_up(self):
-        self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
+        self.handleTurns.currentPlayerToken = GameDisplay.get_first_player(GameDisplay)
         self.set_tokens()
 
     def set_tokens(self):
@@ -56,7 +54,7 @@ class GameType(metaclass=ABCMeta):
 
     def end_game(self):
         if (self.gameState.check_win(self.board)[0]):
-         winner = self.gameState.check_win(self.board)[1][0]
-         GameDisplay.log(f"Player with token {winner} won!")
+         winnerToken = self.gameState.check_win(self.board)[1][0]
+         GameDisplay.winner(winnerToken)
         elif (self.gameState.finished(self.board)):
-         GameDisplay.log("It's a tie!")
+         GameDisplay.tie()
