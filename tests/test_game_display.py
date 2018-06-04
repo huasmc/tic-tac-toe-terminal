@@ -91,19 +91,25 @@ class TestGameDisplay(unittest.TestCase):
         self.assertEqual( GameDisplay.get_first_player(GameDisplay), 'O')
 
     @patch('builtins.input', return_value='1')
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
+    def test_get_game_type_human_vs_bot(self, input):
         self.assertEqual( GameDisplay.get_game_type(GameDisplay), 0 )
 
     @patch('builtins.input', return_value='2')
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_get_game_type_human_vs_human(self, input, mock_stdout):
+    def test_get_game_type_human_vs_human(self, input):
         self.assertEqual( GameDisplay.get_game_type(GameDisplay), 1 )
 
     @patch('builtins.input', return_value='3')
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
+    def test_get_game_type_human_vs_bot(self, input):
         self.assertEqual( GameDisplay.get_game_type(GameDisplay), 2 )
+
+    def test_handle_game_type_input_1(self):
+        self.assertEqual( GameDisplay.handle_game_type_input(GameDisplay, '1'), 0 )
+
+    def test_handle_game_type_input_2(self):
+        self.assertEqual( GameDisplay.handle_game_type_input(GameDisplay, '2'), 1 )
+
+    def test_handle_game_type_input_3(self):
+        self.assertEqual( GameDisplay.handle_game_type_input(GameDisplay, '3'), 2 )
 
 
 if __name__ == '__main__':

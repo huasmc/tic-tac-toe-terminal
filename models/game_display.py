@@ -80,8 +80,18 @@ class GameDisplay:
     def get_game_type(self):
         game_types = self.game_types()
         game_type = input()
-        game_type_index = self.handle_game_type_input(game_type)
+        game_type_index = self.handle_game_type_input(self, game_type)
         if game_type_index == None or not game_types[game_type_index] in game_types:
             return self.get_game_type()
         else:
             return game_type_index
+
+    @staticmethod
+    def handle_game_type_input(self, game_type):
+        if (game_type == '1'):
+            return 0
+        elif (game_type == '2'):
+            return 1
+        elif (game_type == '3'):
+            return 2
+        return None
