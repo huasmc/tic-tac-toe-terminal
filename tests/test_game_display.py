@@ -74,6 +74,10 @@ class TestGameDisplay(unittest.TestCase):
     def test_get_player_spot(self, input):
         self.assertEqual( GameDisplay.get_player_spot(GameDisplay, ['0', '1']), 0 )
 
+    @patch('builtins.input', return_value='X')
+    def test_get_player_token_X(self, input):
+        self.assertEqual( GameDisplay.get_player_token(), 'X')
+
 
 if __name__ == '__main__':
     unittest.main()

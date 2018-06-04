@@ -8,10 +8,6 @@ class TestHandlePlayerInput(unittest.TestCase):
     def setUp(self):
         self.handlePlayerInput = HandlePlayerInput()
 
-    @patch('builtins.input', return_value='0')
-    def test_get_player_spot(self, input):
-        self.assertEqual(self.handlePlayerInput.get_player_spot(['0', '1']), 0)
-
     @patch('builtins.input', return_value='X')
     def test_get_player_token_X(self, input):
         self.assertEqual(self.handlePlayerInput.get_player_token(), 'X')
