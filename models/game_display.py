@@ -57,11 +57,21 @@ class GameDisplay:
 
     @staticmethod
     def get_player_token(self):
-        GameDisplay.prompt_token()
+        self.prompt_token()
         token = input()
         if (token == 'X'):
             return token
         elif (token == 'O'):
             return token
         else:
-            return self.get_player_token()    
+            return self.get_player_token()
+
+    @staticmethod
+    def get_first_player(self):
+        self.prompt_first_player()
+        first_player = input()
+        valid_input = ['O', 'X']
+        if not first_player in valid_input:
+            return self.get_first_player()
+        else:
+            return first_player
