@@ -90,6 +90,21 @@ class TestGameDisplay(unittest.TestCase):
     def test_get_first_player_O(self, input):
         self.assertEqual( GameDisplay.get_first_player(GameDisplay), 'O')
 
+    @patch('builtins.input', return_value='1')
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
+        self.assertEqual( GameDisplay.get_game_type(), 0 )
+
+    @patch('builtins.input', return_value='2')
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_human(self, input, mock_stdout):
+        self.assertEqual( GameDisplay.get_game_type(), 1 )
+
+    @patch('builtins.input', return_value='3')
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_get_game_type_human_vs_bot(self, input, mock_stdout):
+        self.assertEqual( GameDisplay.get_game_type(), 2 )
+
 
 if __name__ == '__main__':
     unittest.main()
