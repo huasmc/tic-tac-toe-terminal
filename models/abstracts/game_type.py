@@ -1,7 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from ..game_state import GameState
 from ..board import Board
-from ..handle_player_input import HandlePlayerInput
 from ..handle_turns import HandleTurns
 from ..game_display import GameDisplay
 from ..human_player import HumanPlayer
@@ -13,7 +12,6 @@ class GameType(metaclass=ABCMeta):
     def __init__(self):
         self.board = Board()
         self.gameState = GameState()
-        self.handlePlayerInput = HandlePlayerInput()
         self.handleTurns = HandleTurns()
         self.playerOne = None
         self.playerTwo = None
@@ -35,7 +33,7 @@ class GameType(metaclass=ABCMeta):
 
     def handle_play(self, player):
         if( isinstance(player, HumanPlayer) ):
-             try_spot = self.handlePlayerInput.get_player_spot(self.board.get_available_spots())
+             try_spot = GameDisplay.get_player_spot(GameDisplay, self.board.get_available_spots())
              spot = copy.deepcopy(try_spot)
              player.play(self.board, spot)
              GameDisplay.chosen_spot(player.token, spot)
@@ -46,7 +44,7 @@ class GameType(metaclass=ABCMeta):
         self.handleTurns.change()
 
     def set_up(self):
-        self.handleTurns.currentPlayerToken = self.handlePlayerInput.get_first_player()
+        self.handleTurns.currentPlayerToken = GameDisplay.get_first_player(GameDisplay)
         self.set_tokens()
 
     def set_tokens(self):

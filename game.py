@@ -1,7 +1,7 @@
 from models.game_types.bot_vs_bot import BotVsBot
 from models.game_types.human_vs_bot import HumanVsBot
 from models.game_types.human_vs_human import HumanVsHuman
-from models.handle_player_input import HandlePlayerInput
+from models.game_display import GameDisplay
 
 class Game:
 
@@ -9,10 +9,9 @@ class Game:
         self.bot_vs_bot = BotVsBot()
         self.human_vs_bot = HumanVsBot()
         self.human_vs_human = HumanVsHuman()
-        self.handlePlayerInput = HandlePlayerInput()
 
     def start(self):
-        game_type = self.handlePlayerInput.get_game_type()
+        game_type = GameDisplay.get_game_type(GameDisplay)
         if(game_type == 0):
             self.human_vs_bot.play()
             return

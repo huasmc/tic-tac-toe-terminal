@@ -51,7 +51,7 @@ class GameDisplay:
         self.prompt_spot(available_spots)
         spot = input()
         if not spot in available_spots:
-            return self.get_player_spot(available_spots)
+            return self.get_player_spot(self, available_spots)
         else:
             return int(spot)
 
@@ -64,7 +64,7 @@ class GameDisplay:
         elif (token == 'O'):
             return token
         else:
-            return self.get_player_token()
+            return self.get_player_token(self)
 
     @staticmethod
     def get_first_player(self):
@@ -72,7 +72,7 @@ class GameDisplay:
         first_player = input()
         valid_input = ['O', 'X']
         if not first_player in valid_input:
-            return self.get_first_player()
+            return self.get_first_player(self)
         else:
             return first_player
 
@@ -82,7 +82,7 @@ class GameDisplay:
         game_type = input()
         game_type_index = self.handle_game_type_input(self, game_type)
         if game_type_index == None or not game_types[game_type_index] in game_types:
-            return self.get_game_type()
+            return self.get_game_type(self)
         else:
             return game_type_index
 

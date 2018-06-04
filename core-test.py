@@ -4,7 +4,6 @@ from tests.test_board import TestBoard
 from tests.test_bot_player import TestBotPlayer
 from tests.test_game_display import TestGameDisplay
 from tests.test_game_state import TestGameState
-from tests.test_handle_player_input import TestHandlePlayerInput
 from tests.test_handle_turns import TestHandleTurns
 from tests.test_human_player import TestHumanPlayer
 from tests.test_player import TestPlayer

@@ -19,9 +19,6 @@ class TestBotVsBot(unittest.TestCase):
     def test_inherits_game_state(self):
         self.assertIsNotNone( self.game.gameState )
 
-    def test_inherits_handle_player_input(self):
-        self.assertIsNotNone( self.game.handlePlayerInput )
-
     def test_inherits_handle_turns(self):
         self.assertIsNotNone( self.game.handleTurns )
 
