@@ -71,6 +71,10 @@ class TestGameDisplay(unittest.TestCase):
         self.gameDisplay.prompt_first_player()
         self.assertEqual( mock_stdout.getvalue(), "Who plays first, X or O?\n" )
 
+    @patch('builtins.input', return_value='0')
+    def test_get_player_spot(self, input):
+        self.assertEqual(self.gameDisplay.get_player_spot(['0', '1']), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
