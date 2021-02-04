@@ -19,30 +19,22 @@ You only need python v3.6 to run the tests and the game. Tests use python's 'uni
 ## How to run
 
 - Clone this repo:
-
 ```
 git clone https://github.com/HuascarMC/tictactoe-minimax
 ```
-
 - Go into the new directory:
-
 ```
 cd tic-tac-toe-terminal
 ```
-
 - (Optional) Install pynput if you would like to run tests
+```
   python -m pip install pynput
-
 ```
 - (Optional) Run all the tests, ensure they all pass (they should):
 ```
-
-```
 - Run the game:
 ```
-
 python3.6 game.py OR python.game.py
-
 ```
 
 ## Things to be added/improved
