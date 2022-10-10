@@ -7,5 +7,8 @@ class Board:
         available_spots = [s for s in self.grid if s != "X" and s != "O"]
         return available_spots
 
+    def set_board(self, new_board): 
+        self.grid = new_board
+
     def reset(self):
         self.grid = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]

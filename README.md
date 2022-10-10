@@ -18,25 +18,36 @@ You only need python v3.6 to run the tests and the game. Tests use python's 'uni
 
 ## How to run
 
+The `game.py` file runs on terminal while the `restful-game.py` runs a RESTful server to run the game from the front-end.
+
 - Clone this repo:
+
 ```
   git clone https://github.com/HuascarMC/tictactoe-minimax
 ```
+
 - Go into the new directory:
+
 ```
   cd tic-tac-toe-terminal
 ```
+
 - (Optional) Install pynput if you would like to run tests
+
 ```
   python -m pip install pynput
 ```
+
 - (Optional) Run all the tests, ensure they all pass (they should):
+
 ```
   python core-test.py
 ```
+
 - Run the game:
+
 ```
-python3.6 game.py OR python.game.py
+`python3.6 game.py` OR `python game.py` OR `python -m flask --app restful-game run
 ```
 
 ## Things to be added/improved
@@ -60,4 +71,7 @@ python3.6 game.py OR python.game.py
 - ~~Fix stdout coming from tests.~~
 
 - ~Add test coverage for game type classes.~.
+
+```
+
 ```
