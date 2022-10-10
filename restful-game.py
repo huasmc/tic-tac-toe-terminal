@@ -6,6 +6,10 @@ from models.bot_player import BotPlayer
 
 app = Flask(__name__)
 
+@app.route("/")
+def Home():
+    return "Tic Tac Toe bot is active."
+
 @app.route("/play", methods=['POST'])
 def Game():
     player_token = request.form["player_token"]
@@ -20,4 +24,4 @@ def Game():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     print(port)
-    app.run(host="https://tic-tac-toe-flask-ai.herokuapp.com", port=port)
+    app.run(threaded=True, port=5000)
