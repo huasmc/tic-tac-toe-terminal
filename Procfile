@@ -1,1 +1,1 @@
-web: gunicorn run:restful-game
+web: gunicorn restful-game:app
