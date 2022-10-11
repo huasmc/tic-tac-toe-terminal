@@ -7,7 +7,6 @@ from models.bot_player import BotPlayer
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def Home():
