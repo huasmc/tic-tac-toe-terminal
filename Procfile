@@ -1,1 +1,1 @@
-web: python -m flask --app restful-game run
+web: gunicorn restful-game
